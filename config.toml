@@ -1,0 +1,40 @@
+languageCode = "en-us"
+title = "Meet Mangukiya"
+baseURL = "https://meetmangukiya.github.io/"
+
+[Author]
+name = "Meet Mangukiya"
+
+[params]
+    intro = true
+    headline = "Meet Mangukiya"
+    description = "Personal Blog"
+    github = "https://github.com/meetmangukiya"
+    gitlab = "https://gitlab.com/meetmangukiya"
+    twitter = "https://twitter.com/meetmangukiya98"
+    email = "meet123mangukiya@gmail.com"
+    shareTwitter = true
+    shareFacebook = true
+    shareLinkedin = true
+    dateFormat = "Mon, Jan 2, 2006"
+    opengraph = true
+
+[[menu.main]]
+    name = "Blog"
+    url = "/"
+    weight = 1
+
+[[menu.main]]
+    name = "Projects"
+    url = "/projects/"
+    weight = 2
+
+[[menu.main]]
+    name = "Contact"
+    url = "/contact/"
+    weight = 3
+
+[[menu.main]]
+    name = "About"
+    url = "/page/about"
+    weight = 4
