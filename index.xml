@@ -69,7 +69,7 @@ This goes in &lt;code&gt;deploy.sh&lt;/code&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;hugo -t ghostwriter
 cd public/
 git add .
-git commit -m &amp;quot;$(Website Update date -u)&amp;quot;
+git commit -m &amp;quot;Website Update $(date -u)&amp;quot;
 git push
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ol&gt;
