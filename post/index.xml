@@ -10,7 +10,7 @@
     <atom:link href="https://meetmangukiya.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Awesome hugo</title>
+      <title>Up and running with awesome hugo</title>
       <link>https://meetmangukiya.github.io/post/hello-world/</link>
       <pubDate>Sat, 18 Mar 2017 14:47:27 +0530</pubDate>
       
@@ -27,6 +27,8 @@ I stick around this one for a while atleast.&lt;/p&gt;
 
 &lt;p&gt;I am using &lt;a href=&#34;https://github.com/roryg/ghostwriter&#34;&gt;Ghostwriter theme&lt;/a&gt; and hope to
 stick with it.&lt;/p&gt;
+
+&lt;h1 id=&#34;setup&#34;&gt;Setup&lt;/h1&gt;
 
 &lt;p&gt;The setup was pretty simple:&lt;/p&gt;
 
@@ -68,7 +70,8 @@ This goes in &lt;code&gt;deploy.sh&lt;/code&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;hugo -t ghostwriter
 cd public/
-git add .
+git checkout master
+git add *
 git commit -m &amp;quot;Website Update $(date -u)&amp;quot;
 git push
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
