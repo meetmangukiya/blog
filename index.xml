@@ -73,6 +73,8 @@ git commit -m &amp;quot;Website Update $(date -u)&amp;quot;
 git push
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;p&gt;That&amp;rsquo;s it, isn&amp;rsquo;t it just wonderful!&lt;/p&gt;
 </description>
     </item>
     
