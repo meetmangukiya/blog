@@ -150,6 +150,16 @@ git add *
 git commit -m &quot;:rocket: Deploy&quot;
 git push -u origin master
 </code></pre></li>
+
+<li><p>Automating deploy:
+This goes in <code>deploy.sh</code></p>
+
+<pre><code class="language-sh">hugo -t ghostwriter
+cd public/
+git add .
+git commit -m &quot;$(Website Update date -u)&quot;
+git push
+</code></pre></li>
 </ol>
 
 </div>
