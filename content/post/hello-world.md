@@ -1,8 +1,9 @@
 +++
 date = "2017-03-18T14:47:27+05:30"
 title = "Up and running with the awesome hugo"
+description = "Hugo is a static site generator"
 draft = false
-
+tags = ['hugo', 'web']
 +++
 
 # Hello World!
