@@ -12,8 +12,8 @@ tags = ['coala']
 Google Summer of Code is a platform to encourage students to work for Open
 Source. It is a 3 month internship-like program whereby student works with Open
 Source Organizations under the guidance of a mentor
-(who is usually a member of the organization) to create program for the
-organization.
+(who is usually a member of the organization) to write/modify programs/softwares
+for the organization.
 
 ## What is coala?
 
@@ -24,10 +24,11 @@ and suggest patches for the given messages.
 
 coala runs all the analyis routines through the bears. Bears are like plugins
 and coala is like a framework. Bears are configured through a file `.coafile`.
-coala runs all the analysis/bears by just running `coala`, isn't it just
-awesome.
 
-I am applying for GSoC project under [coala](https://coala.io)
+coala runs all the analysis/bears by just running `coala`, isn't it just
+awesome!
+
+I am applying for a GSoC project under [coala](https://coala.io)
 
 ## What is my project about?
 
@@ -50,6 +51,7 @@ In bear debugging, the user usually do not need to debug the bear that
 #### Debug modes
 
 The debugger that I'll be creating has three modes:
+
 1. Debug Mode:
     In Debug mode, the debugging is started as it is as in pdb.
 2. Superficial Mode:
@@ -91,4 +93,4 @@ the picture.
 User can run bear with a `--profile` option and a nice profile report will be
 created for the given run.
 
-#### More specific info in the [proposal](/GSoC-DebugandProfileBears-coala.pdf)
+**More specific info in the [proposal](https://meetmangukiya.github.io/GSoC-DebugandProfileBears-coala.pdf)**
