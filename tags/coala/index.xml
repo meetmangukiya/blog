@@ -24,8 +24,8 @@
 &lt;p&gt;Google Summer of Code is a platform to encourage students to work for Open
 Source. It is a 3 month internship-like program whereby student works with Open
 Source Organizations under the guidance of a mentor
-(who is usually a member of the organization) to create program for the
-organization.&lt;/p&gt;
+(who is usually a member of the organization) to write/modify programs/softwares
+for the organization.&lt;/p&gt;
 
 &lt;h2 id=&#34;what-is-coala&#34;&gt;What is coala?&lt;/h2&gt;
 
@@ -35,11 +35,12 @@ languages and prints results and messages from those linters, and also apply
 and suggest patches for the given messages.&lt;/p&gt;
 
 &lt;p&gt;coala runs all the analyis routines through the bears. Bears are like plugins
-and coala is like a framework. Bears are configured through a file &lt;code&gt;.coafile&lt;/code&gt;.
-coala runs all the analysis/bears by just running &lt;code&gt;coala&lt;/code&gt;, isn&amp;rsquo;t it just
-awesome.&lt;/p&gt;
+and coala is like a framework. Bears are configured through a file &lt;code&gt;.coafile&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;I am applying for GSoC project under &lt;a href=&#34;https://coala.io&#34;&gt;coala&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;coala runs all the analysis/bears by just running &lt;code&gt;coala&lt;/code&gt;, isn&amp;rsquo;t it just
+awesome!&lt;/p&gt;
+
+&lt;p&gt;I am applying for a GSoC project under &lt;a href=&#34;https://coala.io&#34;&gt;coala&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;what-is-my-project-about&#34;&gt;What is my project about?&lt;/h2&gt;
 
@@ -61,16 +62,19 @@ In bear debugging, the user usually do not need to debug the bear that
 
 &lt;h4 id=&#34;debug-modes&#34;&gt;Debug modes&lt;/h4&gt;
 
-&lt;p&gt;The debugger that I&amp;rsquo;ll be creating has three modes:
-1. Debug Mode:
-    In Debug mode, the debugging is started as it is as in pdb.
-2. Superficial Mode:
-    In Superficial mode, the arguments and return values of debugged function
-    call is captured. This would remove unnecessary stepping.
-3. Report Mode:
-    This is probably the most useful mode. If this mode is used, then the bear
-    is ran and the arguments and the return values of all the subsequent function
-    calls are captured and printed in a beautiful tabular form.&lt;/p&gt;
+&lt;p&gt;The debugger that I&amp;rsquo;ll be creating has three modes:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Debug Mode:
+In Debug mode, the debugging is started as it is as in pdb.&lt;/li&gt;
+&lt;li&gt;Superficial Mode:
+In Superficial mode, the arguments and return values of debugged function
+call is captured. This would remove unnecessary stepping.&lt;/li&gt;
+&lt;li&gt;Report Mode:
+This is probably the most useful mode. If this mode is used, then the bear
+is ran and the arguments and the return values of all the subsequent function
+calls are captured and printed in a beautiful tabular form.&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;h4 id=&#34;debugging-environment&#34;&gt;Debugging environment&lt;/h4&gt;
 
@@ -103,7 +107,7 @@ the picture.&lt;/p&gt;
 &lt;p&gt;User can run bear with a &lt;code&gt;--profile&lt;/code&gt; option and a nice profile report will be
 created for the given run.&lt;/p&gt;
 
-&lt;h4 id=&#34;more-specific-info-in-the-proposal-gsoc-debugandprofilebears-coala-pdf&#34;&gt;More specific info in the &lt;a href=&#34;https://meetmangukiya.github.io/GSoC-DebugandProfileBears-coala.pdf&#34;&gt;proposal&lt;/a&gt;&lt;/h4&gt;
+&lt;h4 id=&#34;more-specific-info-in-the-proposal-gsoc-debugandprofilebears-coala-pdf&#34;&gt;More specific info in the &lt;strong&gt;[proposal]&lt;/strong&gt;(/GSoC-DebugandProfileBears-coala.pdf)&lt;/h4&gt;
 </description>
     </item>
     
