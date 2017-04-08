@@ -1,7 +1,7 @@
-	<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en-us">
 <head>
-	<title>Meet Mangukiya | My Blog</title>
+	<title>Up and running with the awesome hugo&middot; Meet Mangukiya | My Blog</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="author" content="Meet Mangukiya">
@@ -16,8 +16,7 @@
 	<link rel="shortcut icon" href="https://meetmangukiya.github.io/favicon.ico" type="image/x-icon">
 
 	<!-- RSS -->
-	<link href="https://meetmangukiya.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Meet Mangukiya | My Blog" />
-	  	<link href="https://meetmangukiya.github.io/index.xml" rel="feed" type="application/rss+xml" title="Meet Mangukiya | My Blog" />
+	
 
 	<!-- Font Awesome -->
 	<link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -30,8 +29,8 @@
   <script>hljs.initHighlightingOnLoad();</script>
 </head>
 
-	<body>
-		<header class="site-header">
+<body>
+    <header class="site-header">
 	<div class="branding">
 		<a href="https://meetmangukiya.github.io/">
 		<img class="avatar" src="https://meetmangukiya.github.io/img/avatar.jpg" alt=""/>
@@ -119,48 +118,11 @@
 </header>
 
 
-		<div class="content">
-			<div class="home">
-
-				
-
-				<div class="posts">
-	
-	<div class="post-teaser">
+    <div class="content">
+    <article>
 		<header>
-		    <h1>
-		    <a class="post-link" href="https://meetmangukiya.github.io/post/gsoc-coala-debugger/">
-		        GSoC Proposal - Debugger for coala bears
-		    </a>
-		    </h1>
-		    <p class="meta">
-    March 19, 2017 &middot; 3 minute read
-
-    
-        &middot; Tags:
-            <a href="https://meetmangukiya.github.io/tags/coala">coala</a>
-            
-</p>
-
-		</header>
-
-		<div class="excerpt">
-			I am applying for Google Summer of Code What is Google Summer of Code a.k.a. GSoC? Google Summer of Code is a platform to encourage students to work for Open Source. It is a 3 month internship-like program whereby student works with Open Source Organizations under the guidance of a mentor (who is usually a member of the organization) to write/modify programs/softwares for the organization.
-What is coala? coala is a program that provides a unified interface to statically analyse any project through one application.
-			
-			<br>
-			<a class="button" href="https://meetmangukiya.github.io/post/gsoc-coala-debugger/">
-				Continue reading
-			</a>
-		</div>
-	</div><div class="post-teaser">
-		<header>
-		    <h1>
-		    <a class="post-link" href="https://meetmangukiya.github.io/post/hello-hugo/">
-		        Up and running with the awesome hugo
-		    </a>
-		    </h1>
-		    <p class="meta">
+			<h1 class="title">Up and running with the awesome hugo</h1>
+			<p class="meta">
     March 18, 2017 &middot; 1 minute read
 
     
@@ -172,29 +134,80 @@ What is coala? coala is a program that provides a unified interface to staticall
 
 		</header>
 
-		<div class="excerpt">
-			Hugo is a static site generator
-			
-			<br>
-			<a class="button" href="https://meetmangukiya.github.io/post/hello-hugo/">
-				Continue reading
-			</a>
-		</div>
-	</div>
-</div>
+	<section class="post-content">
+		
 
-				<div class="pagination">
-	
-</div>
+<h1 id="hello-world">Hello World!</h1>
+
+<p>I am kickstarting this website today. I&rsquo;ve been switching themes and platforms.
+First I tried Jekyll, but it didn&rsquo;t turn out that good for me. Then I started
+writing a new website from scratch and dropped it in between :P. Now, I am using
+<a href="https://gohugo.io">hugo</a>, seems pretty cool and easy to use until now. Let&rsquo;s hope
+I stick around this one for a while atleast.</p>
+
+<p>I am using <a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> and hope to
+stick with it.</p>
+
+<h1 id="setup">Setup</h1>
+
+<p>The setup was pretty simple:</p>
+
+<ol>
+<li>Install hugo.</li>
+
+<li><p>Scaffold &amp; Install themes.</p>
+
+<pre><code class="language-sh">hugo new site meetmangukiya
+cd meetmangukiya/
+hugo new post/hello-world.md
+
+cd themes
+git clone https://github.com/roryg/ghostwriter
+cd ghostwriter
+npm install
+cd ../../
+
+vim config.toml
+# configuration ...
+hugo server --theme=ghostwriter --buildDrafts
+# go check localhost:1313
+# There, you have a website running already :D
+</code></pre></li>
+
+<li><p>Build and deploy</p>
+
+<pre><code class="language-sh">hugo -t ghostwriter
+cd public
+git init
+git remote add origin &lt;remote&gt;
+git add *
+git commit -m &quot;:rocket: Deploy&quot;
+git push -u origin master
+</code></pre></li>
+
+<li><p>Automating deploy:
+This goes in <code>deploy.sh</code></p>
+
+<pre><code class="language-sh">hugo -t ghostwriter
+cd public/
+git checkout master
+git add *
+git commit -m &quot;Website Update $(date -u)&quot;
+git push
+</code></pre></li>
+</ol>
+
+<p>That&rsquo;s it, isn&rsquo;t it just wonderful!</p>
 
 
-				<footer class="site-footer">
+		
+	</section>
+    </div>
+
+    <footer class="site-footer">
 	<p class="text">&copy; 2017 - Released under the MIT license<br>Powered by <a href="//gohugo.io/">Hugo</a> with the <a href="//github.com/digitalcraftsman/hugo-type-theme">Type Theme</a></p>
 </footer>
 
 
-
-			</div>
-		</div>
-	</body>
+</body>
 </html>
