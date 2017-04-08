@@ -1,40 +1,57 @@
+baseurl = "http://replace-this-with-your-domain.com/"
 languageCode = "en-us"
-title = "Meet Mangukiya"
-baseURL = "https://meetmangukiya.github.io/"
+title = "Meet Mangukiya | My Blog"
+theme = "hugo-type-theme"
+# Enable comments by entering your Disqus shortname
+# disqusShortname = "spf13"
+# Add your tracking code to enable Google Analytics
+#TODO: googleAnalytics = ""
+# Posts per page
+paginate = 5
+# Comment the themesDir option if you use this theme in production
+# themesDir = "../.."
 
-[Author]
-name = "Meet Mangukiya"
 
 [params]
-    intro = true
-    headline = "Meet Mangukiya"
-    description = "Personal Blog"
-    github = "https://github.com/meetmangukiya"
-    gitlab = "https://gitlab.com/meetmangukiya"
-    twitter = "https://twitter.com/meetmangukiya98"
-    email = "meet123mangukiya@gmail.com"
-    shareTwitter = true
-    shareFacebook = true
-    shareLinkedin = true
-    dateFormat = "Mon, Jan 2, 2006"
-    opengraph = true
+	author = "Meet Mangukiya"
+	description = "My footprint on the WE"
+	# The keywords will be added as a meta tag. Delimit them with a comma.
+	keywords = ""
+	# Either show custom avatar on the top
+	# left by adding the filename in below
+	avatar = "img/avatar.jpg"
+	# or use Gravatar by adding your email address to generate a unique avatar
+	# gravatar = "your@email.com"
 
-[[menu.main]]
-    name = "Blog"
-    url = "/"
-    weight = 1
+	# headerText = "My footprint on the web."
+	# To add a header background to the main site, save your image under static/img/.
+	# If now image path is provided, a orange background will be shown instead.
+	headerImage = ""
+	copyright = "Released under the MIT license<br>Powered by [Hugo](//gohugo.io/) with the [Type Theme](//github.com/digitalcraftsman/hugo-type-theme)"
 
-[[menu.main]]
-    name = "Projects"
-    url = "/projects/"
-    weight = 2
 
-[[menu.main]]
-    name = "Contact"
-    url = "/contact/"
-    weight = 3
-
-[[menu.main]]
-    name = "About"
-    url = "/about/"
-    weight = 4
+	[params.social]
+		# Insert your accout name and the icon will be shown in the right menu
+		rss = true
+		homepage = true
+		email = "meet123mangukiya@gmail.com"
+		behance = ""
+		bitbucket  =""
+		dribbble = ""
+		facebook = ""
+		flickr = ""
+		github = "meetmangukiya/"
+		googleplus = ""
+		instagram = ""
+		linkedin = ""
+		pinterest = ""
+		reddit = ""
+		soundcloud = ""
+		stackexchange = ""
+		steam = ""
+		tumblr = ""
+		twitter = "meetmangukiya98"
+		wordpress = ""
+		youtube = ""
+		gitlab = "meetmangukiya"
+		trello = ""

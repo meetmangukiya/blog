@@ -1,5 +1,5 @@
 echo "[building]"
-hugo -t ghostwriter
+hugo -t hugo-type-theme
 echo "[Pushing to master]"
 cd public/
 git checkout master
