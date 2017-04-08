@@ -1,20 +1,119 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Meet Mangukiya</title>
-    <link>https://meetmangukiya.github.io/post/index.xml</link>
-    <description>Recent content in Posts on Meet Mangukiya</description>
+    <title>Posts on Meet Mangukiya | My Blog</title>
+    <link>http://replace-this-with-your-domain.com/post/index.xml</link>
+    <description>Recent content in Posts on Meet Mangukiya | My Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 18 Mar 2017 14:47:27 +0530</lastBuildDate>
-    <atom:link href="https://meetmangukiya.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Released under the MIT license&lt;br&gt;Powered by [Hugo](//gohugo.io/) with the [Type Theme](//github.com/digitalcraftsman/hugo-type-theme)</copyright>
+    <lastBuildDate>Sun, 19 Mar 2017 18:15:48 +0530</lastBuildDate>
+    <atom:link href="http://replace-this-with-your-domain.com/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>GSoC Proposal - Debugger for coala bears</title>
+      <link>http://replace-this-with-your-domain.com/post/coala/</link>
+      <pubDate>Sun, 19 Mar 2017 18:15:48 +0530</pubDate>
+      
+      <guid>http://replace-this-with-your-domain.com/post/coala/</guid>
+      <description>
+
+&lt;h1 id=&#34;i-am-applying-for-google-summer-of-code&#34;&gt;I am applying for Google Summer of Code&lt;/h1&gt;
+
+&lt;h2 id=&#34;what-is-google-summer-of-code-a-k-a-gsoc&#34;&gt;What is Google Summer of Code a.k.a. GSoC?&lt;/h2&gt;
+
+&lt;p&gt;Google Summer of Code is a platform to encourage students to work for Open
+Source. It is a 3 month internship-like program whereby student works with Open
+Source Organizations under the guidance of a mentor
+(who is usually a member of the organization) to create program for the
+organization.&lt;/p&gt;
+
+&lt;h2 id=&#34;what-is-coala&#34;&gt;What is coala?&lt;/h2&gt;
+
+&lt;p&gt;coala is a program that provides a unified interface to statically analyse
+any project through one application. It wraps many linters across different
+languages and prints results and messages from those linters, and also apply
+and suggest patches for the given messages.&lt;/p&gt;
+
+&lt;p&gt;coala runs all the analyis routines through the bears. Bears are like plugins
+and coala is like a framework. Bears are configured through a file &lt;code&gt;.coafile&lt;/code&gt;.
+coala runs all the analysis/bears by just running &lt;code&gt;coala&lt;/code&gt;, isn&amp;rsquo;t it just
+awesome.&lt;/p&gt;
+
+&lt;p&gt;I am applying for GSoC project under &lt;a href=&#34;https://coala.io&#34;&gt;coala&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;what-is-my-project-about&#34;&gt;What is my project about?&lt;/h2&gt;
+
+&lt;h3 id=&#34;debug-and-profile-bears&#34;&gt;Debug and profile bears.&lt;/h3&gt;
+
+&lt;p&gt;My project is about creating a debugger for coala, to debug the coala bears and
+create an interface to profile the bears.&lt;/p&gt;
+
+&lt;h3 id=&#34;debugger&#34;&gt;Debugger&lt;/h3&gt;
+
+&lt;h4 id=&#34;why-not-use-pdb&#34;&gt;Why not use pdb?&lt;/h4&gt;
+
+&lt;p&gt;You may ask that one may just use &lt;code&gt;pdb&lt;/code&gt; to debug the bears.&lt;/p&gt;
+
+&lt;p&gt;Writing bears in coala is very easy, thanks to its user friendly and abstract
+API. But the bear developers, usually find difficulty in debugging the bears.
+In bear debugging, the user usually do not need to debug the bear that
+&lt;em&gt;low levelly&lt;/em&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;debug-modes&#34;&gt;Debug modes&lt;/h4&gt;
+
+&lt;p&gt;The debugger that I&amp;rsquo;ll be creating has three modes:
+1. Debug Mode:
+    In Debug mode, the debugging is started as it is as in pdb.
+2. Superficial Mode:
+    In Superficial mode, the arguments and return values of debugged function
+    call is captured. This would remove unnecessary stepping.
+3. Report Mode:
+    This is probably the most useful mode. If this mode is used, then the bear
+    is ran and the arguments and the return values of all the subsequent function
+    calls are captured and printed in a beautiful tabular form.&lt;/p&gt;
+
+&lt;h4 id=&#34;debugging-environment&#34;&gt;Debugging environment&lt;/h4&gt;
+
+&lt;p&gt;The job of importing the bear, instantiate them, and run the bear with requried
+setting is a trivial job that can be automated inside coala, so the devs don&amp;rsquo;t
+need to set it up on their own ;)&lt;/p&gt;
+
+&lt;p&gt;The bear being debugged will be imported. If no settings are provided in the CLI
+then settings in the coafile will be used while running the bear.&lt;/p&gt;
+
+&lt;h4 id=&#34;debug&#34;&gt;Debug!&lt;/h4&gt;
+
+&lt;p&gt;After the importing and collecting of settings is done. Its time to start
+debugging. The run method of the bear is called in &lt;em&gt;Debug Mode&lt;/em&gt;. After that at
+every line, user has an option to do whatever options pdb already has plus the
+superficial mode. Superficial mode will perform the function call and print the
+arguments and the return value at that line.&lt;/p&gt;
+
+&lt;p&gt;Using the report mode. If the report mode flag is set to true, then the run
+method of bear is called in superficial mode which will directly print the
+&lt;strong&gt;Results&lt;/strong&gt; and return values and arguments of all the function calls in the run
+ method.&lt;/p&gt;
+
+&lt;h3 id=&#34;profiler&#34;&gt;Profiler&lt;/h3&gt;
+
+&lt;p&gt;After the bear is written and debugged, the author may want to check if he can
+do any performance improvements in the bear. This is where profiling comes into
+the picture.&lt;/p&gt;
+
+&lt;p&gt;User can run bear with a &amp;ndash;profile option and a nice profile report will be
+created for the given run.&lt;/p&gt;
+
+&lt;h4 id=&#34;more-specific-info-in-the-proposal-gsoc-debugandprofilebears-coala-pdf&#34;&gt;More specific info in the &lt;a href=&#34;http://replace-this-with-your-domain.com/GSoC-DebugandProfileBears-coala.pdf&#34;&gt;proposal&lt;/a&gt;&lt;/h4&gt;
+</description>
+    </item>
     
     <item>
       <title>Up and running with the awesome hugo</title>
-      <link>https://meetmangukiya.github.io/post/hello-world/</link>
+      <link>http://replace-this-with-your-domain.com/post/hello-world/</link>
       <pubDate>Sat, 18 Mar 2017 14:47:27 +0530</pubDate>
       
-      <guid>https://meetmangukiya.github.io/post/hello-world/</guid>
+      <guid>http://replace-this-with-your-domain.com/post/hello-world/</guid>
       <description>
 
 &lt;h1 id=&#34;hello-world&#34;&gt;Hello World!&lt;/h1&gt;
