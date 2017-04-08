@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Coala on Meet Mangukiya | My Blog</title>
-    <link>http://replace-this-with-your-domain.com/tags/coala/index.xml</link>
+    <link>https://meetmangukiya.github.io/tags/coala/index.xml</link>
     <description>Recent content in Coala on Meet Mangukiya | My Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Released under the MIT license&lt;br&gt;Powered by [Hugo](//gohugo.io/) with the [Type Theme](//github.com/digitalcraftsman/hugo-type-theme)</copyright>
-    <atom:link href="http://replace-this-with-your-domain.com/tags/coala/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://meetmangukiya.github.io/tags/coala/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>GSoC Proposal - Debugger for coala bears</title>
-      <link>http://replace-this-with-your-domain.com/post/coala/</link>
+      <link>https://meetmangukiya.github.io/post/coala/</link>
       <pubDate>Sun, 19 Mar 2017 18:15:48 +0530</pubDate>
       
-      <guid>http://replace-this-with-your-domain.com/post/coala/</guid>
+      <guid>https://meetmangukiya.github.io/post/coala/</guid>
       <description>
 
 &lt;h1 id=&#34;i-am-applying-for-google-summer-of-code&#34;&gt;I am applying for Google Summer of Code&lt;/h1&gt;
@@ -103,7 +103,7 @@ the picture.&lt;/p&gt;
 &lt;p&gt;User can run bear with a &amp;ndash;profile option and a nice profile report will be
 created for the given run.&lt;/p&gt;
 
-&lt;h4 id=&#34;more-specific-info-in-the-proposal-gsoc-debugandprofilebears-coala-pdf&#34;&gt;More specific info in the &lt;a href=&#34;http://replace-this-with-your-domain.com/GSoC-DebugandProfileBears-coala.pdf&#34;&gt;proposal&lt;/a&gt;&lt;/h4&gt;
+&lt;h4 id=&#34;more-specific-info-in-the-proposal-gsoc-debugandprofilebears-coala-pdf&#34;&gt;More specific info in the &lt;a href=&#34;https://meetmangukiya.github.io/GSoC-DebugandProfileBears-coala.pdf&#34;&gt;proposal&lt;/a&gt;&lt;/h4&gt;
 </description>
     </item>
     

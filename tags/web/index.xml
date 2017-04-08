@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Web on Meet Mangukiya | My Blog</title>
-    <link>http://replace-this-with-your-domain.com/tags/web/index.xml</link>
+    <link>https://meetmangukiya.github.io/tags/web/index.xml</link>
     <description>Recent content in Web on Meet Mangukiya | My Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Released under the MIT license&lt;br&gt;Powered by [Hugo](//gohugo.io/) with the [Type Theme](//github.com/digitalcraftsman/hugo-type-theme)</copyright>
-    <atom:link href="http://replace-this-with-your-domain.com/tags/web/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://meetmangukiya.github.io/tags/web/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Up and running with the awesome hugo</title>
-      <link>http://replace-this-with-your-domain.com/post/hello-world/</link>
+      <link>https://meetmangukiya.github.io/post/hello-world/</link>
       <pubDate>Sat, 18 Mar 2017 14:47:27 +0530</pubDate>
       
-      <guid>http://replace-this-with-your-domain.com/post/hello-world/</guid>
+      <guid>https://meetmangukiya.github.io/post/hello-world/</guid>
       <description>
 
 &lt;h1 id=&#34;hello-world&#34;&gt;Hello World!&lt;/h1&gt;
