@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Coala on Meet Mangukiya | My Blog</title>
+    <link>https://meetmangukiya.github.io/tags/coala/</link>
+    <description>Recent content in Coala on Meet Mangukiya | My Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Released under the MIT license&lt;br&gt;Powered by [Hugo](//gohugo.io/) with the [Type Theme](//github.com/digitalcraftsman/hugo-type-theme)</copyright>
+    <lastBuildDate>Sun, 19 Mar 2017 18:15:48 +0530</lastBuildDate>
+    
+	<atom:link href="https://meetmangukiya.github.io/tags/coala/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>GSoC Proposal - Debugger for coala bears</title>
+      <link>https://meetmangukiya.github.io/post/gsoc-coala-debugger/</link>
+      <pubDate>Sun, 19 Mar 2017 18:15:48 +0530</pubDate>
+      
+      <guid>https://meetmangukiya.github.io/post/gsoc-coala-debugger/</guid>
+      <description>I am applying for Google Summer of Code What is Google Summer of Code a.k.a. GSoC? Google Summer of Code is a platform to encourage students to work for Open Source. It is a 3 month internship-like program whereby student works with Open Source Organizations under the guidance of a mentor (who is usually a member of the organization) to write/modify programs/softwares for the organization.
+What is coala? coala is a program that provides a unified interface to statically analyse any project through one application.</description>
+    </item>
+    
+  </channel>
+</rss>

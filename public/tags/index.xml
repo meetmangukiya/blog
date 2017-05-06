@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Meet Mangukiya | My Blog</title>
+    <link>https://meetmangukiya.github.io/tags/</link>
+    <description>Recent content in Tags on Meet Mangukiya | My Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Released under the MIT license&lt;br&gt;Powered by [Hugo](//gohugo.io/) with the [Type Theme](//github.com/digitalcraftsman/hugo-type-theme)</copyright>
+    <lastBuildDate>Sun, 19 Mar 2017 18:15:48 +0530</lastBuildDate>
+    
+	<atom:link href="https://meetmangukiya.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Coala</title>
+      <link>https://meetmangukiya.github.io/tags/coala/</link>
+      <pubDate>Sun, 19 Mar 2017 18:15:48 +0530</pubDate>
+      
+      <guid>https://meetmangukiya.github.io/tags/coala/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>https://meetmangukiya.github.io/tags/hugo/</link>
+      <pubDate>Sat, 18 Mar 2017 14:47:27 +0530</pubDate>
+      
+      <guid>https://meetmangukiya.github.io/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Web</title>
+      <link>https://meetmangukiya.github.io/tags/web/</link>
+      <pubDate>Sat, 18 Mar 2017 14:47:27 +0530</pubDate>
+      
+      <guid>https://meetmangukiya.github.io/tags/web/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
