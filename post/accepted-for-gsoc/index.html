@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-	<title>Up and running with the awesome hugo&middot; Meet Mangukiya | My Blog</title>
+	<title>Accepted for GSoC 2017 at coala&middot; Meet Mangukiya | My Blog</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="author" content="Meet Mangukiya">
@@ -121,14 +121,13 @@
     <div class="content">
     <article>
 		<header>
-			<h1 class="title">Up and running with the awesome hugo</h1>
+			<h1 class="title">Accepted for GSoC 2017 at coala</h1>
 			<p class="meta">
-    March 18, 2017 &middot; 1 minute read
+    May 7, 2017 &middot; 2 minute read
 
     
         &middot; Tags:
-            <a href="https://meetmangukiya.github.io/tags/hugo">hugo</a>
-            , <a href="https://meetmangukiya.github.io/tags/web">web</a>
+            <a href="https://meetmangukiya.github.io/tags/coala">coala</a>
             
 </p>
 
@@ -137,67 +136,45 @@
 	<section class="post-content">
 		
 
-<h1 id="hello-world">Hello World!</h1>
+<h1 id="accepted-for-gsoc">Accepted for GSoC</h1>
 
-<p>I am kickstarting this website today. I&rsquo;ve been switching themes and platforms.
-First I tried Jekyll, but it didn&rsquo;t turn out that good for me. Then I started
-writing a new website from scratch and dropped it in between :P. Now, I am using
-<a href="https://gohugo.io">hugo</a>, seems pretty cool and easy to use until now. Let&rsquo;s hope
-I stick around this one for a while atleast.</p>
+<p>Last month I created a post about me applying for GSoC under coala organization.
+And the results were declared on 4th May, and guess what? I am accepted as a
+GSoC student!! How awesome is that?! :D</p>
 
-<p>I am using <a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> and hope to
-stick with it.</p>
+<p><img src="/img/gsoc_email.png" alt="GSoC Acceptance Email" /></p>
 
-<h1 id="setup">Setup</h1>
+<h1 id="so-what-lies-further">So what lies further</h1>
 
-<p>The setup was pretty simple:</p>
+<p>Now, that the results are out, the next phase is the Community Bonding period.
+During this period we are supposed to research more about our project, create
+milestones and think about the implementation details; do code reviews, present
+our project on coala mailing lists, and work out the schedule to follow in the 3
+months of coding period; contact our mentors and discuss the project further.</p>
 
-<ol>
-<li>Install hugo.</li>
+<p>It is not the usual &ldquo;start implementing right away&rdquo; kinda thing where you just
+start coding without thinking about future pitfalls and implementations. So,
+this is something new and interesting, because now we program in a more
+structured, organized and well planned way; we will already know how we have
+to proceed. And also be certain that the achieved product will be a better,
+maintainable piece of software and not just a &ldquo;just works&rdquo; ugly kinda software.</p>
 
-<li><p>Scaffold &amp; Install themes.</p>
+<p>I&rsquo;ll be blogging weekly from now on summarizing the work done in that week and
+work that I might be doing in the subsequent weeks, its gonna be awesome!</p>
 
-<pre><code class="language-sh">hugo new site meetmangukiya
-cd meetmangukiya/
-hugo new post/hello-world.md
+<p>My project abstract can be found
+<a href="https://summerofcode.withgoogle.com/projects/#4913450777051136">here</a>.</p>
 
-cd themes
-git clone https://github.com/roryg/ghostwriter
-cd ghostwriter
-npm install
-cd ../../
+<p>I already had a video conference with my mentor
+<a href="https://github.com/Udayan12167">Udayan</a> regarding the projects, where we set
+things to do in this week. Most important of all being to find a more viable way
+to search and answer user queries from documentation by either using search
+engine frameworks or Topic Modelling frameworks. So in this week I&rsquo;ll be
+checking out various frameworks and see the pros and cons of each and
+accordingly decide one framework that I&rsquo;ll use in the answering-user-query part
+of my project.</p>
 
-vim config.toml
-# configuration ...
-hugo server --theme=ghostwriter --buildDrafts
-# go check localhost:1313
-# There, you have a website running already :D
-</code></pre></li>
-
-<li><p>Build and deploy</p>
-
-<pre><code class="language-sh">hugo -t ghostwriter
-cd public
-git init
-git remote add origin &lt;remote&gt;
-git add *
-git commit -m &quot;:rocket: Deploy&quot;
-git push -u origin master
-</code></pre></li>
-
-<li><p>Automating deploy:
-This goes in <code>deploy.sh</code></p>
-
-<pre><code class="language-sh">hugo -t ghostwriter
-cd public/
-git checkout master
-git add *
-git commit -m &quot;Website Update $(date -u)&quot;
-git push
-</code></pre></li>
-</ol>
-
-<p>That&rsquo;s it, isn&rsquo;t it just wonderful!</p>
+<p>That&rsquo;s it for now, cy&rsquo;ll next week!</p>
 
 
 		

@@ -2,13 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Meet Mangukiya | My Blog</title>
-    <link>https://meetmangukiya.github.io/index.xml</link>
+    <link>https://meetmangukiya.github.io/</link>
     <description>Recent content on Meet Mangukiya | My Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Released under the MIT license&lt;br&gt;Powered by [Hugo](//gohugo.io/) with the [Type Theme](//github.com/digitalcraftsman/hugo-type-theme)</copyright>
-    <lastBuildDate>Sun, 19 Mar 2017 18:15:48 +0530</lastBuildDate>
-    <atom:link href="https://meetmangukiya.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 07 May 2017 07:49:38 +0530</lastBuildDate>
+    
+	<atom:link href="https://meetmangukiya.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Accepted for GSoC 2017 at coala</title>
+      <link>https://meetmangukiya.github.io/post/accepted-for-gsoc/</link>
+      <pubDate>Sun, 07 May 2017 07:49:38 +0530</pubDate>
+      
+      <guid>https://meetmangukiya.github.io/post/accepted-for-gsoc/</guid>
+      <description>Accepted for GSoC Last month I created a post about me applying for GSoC under coala organization. And the results were declared on 4th May, and guess what? I am accepted as a GSoC student!! How awesome is that?! :D
+So what lies further Now, that the results are out, the next phase is the Community Bonding period. During this period we are supposed to research more about our project, create milestones and think about the implementation details; do code reviews, present our project on coala mailing lists, and work out the schedule to follow in the 3 months of coding period; contact our mentors and discuss the project further.</description>
+    </item>
     
     <item>
       <title>GSoC Proposal - Debugger for coala bears</title>
@@ -16,100 +28,8 @@
       <pubDate>Sun, 19 Mar 2017 18:15:48 +0530</pubDate>
       
       <guid>https://meetmangukiya.github.io/post/gsoc-coala-debugger/</guid>
-      <description>
-
-&lt;h1 id=&#34;i-am-applying-for-google-summer-of-code&#34;&gt;I am applying for Google Summer of Code&lt;/h1&gt;
-
-&lt;h2 id=&#34;what-is-google-summer-of-code-a-k-a-gsoc&#34;&gt;What is Google Summer of Code a.k.a. GSoC?&lt;/h2&gt;
-
-&lt;p&gt;Google Summer of Code is a platform to encourage students to work for Open
-Source. It is a 3 month internship-like program whereby student works with Open
-Source Organizations under the guidance of a mentor
-(who is usually a member of the organization) to write/modify programs/softwares
-for the organization.&lt;/p&gt;
-
-&lt;h2 id=&#34;what-is-coala&#34;&gt;What is coala?&lt;/h2&gt;
-
-&lt;p&gt;coala is a program that provides a unified interface to statically analyse
-any project through one application. It wraps many linters across different
-languages and prints results and messages from those linters, and also apply
-and suggest patches for the given messages.&lt;/p&gt;
-
-&lt;p&gt;coala runs all the analyis routines through the bears. Bears are like plugins
-and coala is like a framework. Bears are configured through a file &lt;code&gt;.coafile&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;coala runs all the analysis/bears by just running &lt;code&gt;coala&lt;/code&gt;, isn&amp;rsquo;t it just
-awesome!&lt;/p&gt;
-
-&lt;p&gt;I am applying for a GSoC project under &lt;a href=&#34;https://coala.io&#34;&gt;coala&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;what-is-my-project-about&#34;&gt;What is my project about?&lt;/h2&gt;
-
-&lt;h3 id=&#34;debug-and-profile-bears&#34;&gt;Debug and profile bears.&lt;/h3&gt;
-
-&lt;p&gt;My project is about creating a debugger for coala, to debug the coala bears and
-create an interface to profile the bears.&lt;/p&gt;
-
-&lt;h3 id=&#34;debugger&#34;&gt;Debugger&lt;/h3&gt;
-
-&lt;h4 id=&#34;why-not-use-pdb&#34;&gt;Why not use pdb?&lt;/h4&gt;
-
-&lt;p&gt;You may ask that one may just use &lt;code&gt;pdb&lt;/code&gt; to debug the bears.&lt;/p&gt;
-
-&lt;p&gt;Writing bears in coala is very easy, thanks to its user friendly and abstract
-API. But the bear developers, usually find difficulty in debugging the bears.
-In bear debugging, the user usually do not need to debug the bear that
-&lt;em&gt;low levelly&lt;/em&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;debug-modes&#34;&gt;Debug modes&lt;/h4&gt;
-
-&lt;p&gt;The debugger that I&amp;rsquo;ll be creating has three modes:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Debug Mode:
-In Debug mode, the debugging is started as it is as in pdb.&lt;/li&gt;
-&lt;li&gt;Superficial Mode:
-In Superficial mode, the arguments and return values of debugged function
-call is captured. This would remove unnecessary stepping.&lt;/li&gt;
-&lt;li&gt;Report Mode:
-This is probably the most useful mode. If this mode is used, then the bear
-is ran and the arguments and the return values of all the subsequent function
-calls are captured and printed in a beautiful tabular form.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h4 id=&#34;debugging-environment&#34;&gt;Debugging environment&lt;/h4&gt;
-
-&lt;p&gt;The job of importing the bear, instantiate them, and run the bear with requried
-setting is a trivial job that can be automated inside coala, so the devs don&amp;rsquo;t
-need to set it up on their own ;)&lt;/p&gt;
-
-&lt;p&gt;The bear being debugged will be imported. If no settings are provided in the CLI
-then settings in the coafile will be used while running the bear.&lt;/p&gt;
-
-&lt;h4 id=&#34;debug&#34;&gt;Debug!&lt;/h4&gt;
-
-&lt;p&gt;After the importing and collecting of settings is done. Its time to start
-debugging. The run method of the bear is called in &lt;em&gt;Debug Mode&lt;/em&gt;. After that at
-every line, user has an option to do whatever options pdb already has plus the
-superficial mode. Superficial mode will perform the function call and print the
-arguments and the return value at that line.&lt;/p&gt;
-
-&lt;p&gt;Using the report mode. If the report mode flag is set to true, then the run
-method of bear is called in superficial mode which will directly print the
-&lt;strong&gt;Results&lt;/strong&gt; and return values and arguments of all the function calls in the run
- method.&lt;/p&gt;
-
-&lt;h3 id=&#34;profiler&#34;&gt;Profiler&lt;/h3&gt;
-
-&lt;p&gt;After the bear is written and debugged, the author may want to check if he can
-do any performance improvements in the bear. This is where profiling comes into
-the picture.&lt;/p&gt;
-
-&lt;p&gt;User can run bear with a &lt;code&gt;--profile&lt;/code&gt; option and a nice profile report will be
-created for the given run.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;More specific info in the &lt;a href=&#34;https://meetmangukiya.github.io/GSoC-DebugandProfileBears-coala.pdf&#34;&gt;proposal&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
-</description>
+      <description>I am applying for Google Summer of Code What is Google Summer of Code a.k.a. GSoC? Google Summer of Code is a platform to encourage students to work for Open Source. It is a 3 month internship-like program whereby student works with Open Source Organizations under the guidance of a mentor (who is usually a member of the organization) to write/modify programs/softwares for the organization.
+What is coala? coala is a program that provides a unified interface to statically analyse any project through one application.</description>
     </item>
     
     <item>
@@ -118,70 +38,8 @@ created for the given run.&lt;/p&gt;
       <pubDate>Sat, 18 Mar 2017 14:47:27 +0530</pubDate>
       
       <guid>https://meetmangukiya.github.io/post/hello-hugo/</guid>
-      <description>
-
-&lt;h1 id=&#34;hello-world&#34;&gt;Hello World!&lt;/h1&gt;
-
-&lt;p&gt;I am kickstarting this website today. I&amp;rsquo;ve been switching themes and platforms.
-First I tried Jekyll, but it didn&amp;rsquo;t turn out that good for me. Then I started
-writing a new website from scratch and dropped it in between :P. Now, I am using
-&lt;a href=&#34;https://gohugo.io&#34;&gt;hugo&lt;/a&gt;, seems pretty cool and easy to use until now. Let&amp;rsquo;s hope
-I stick around this one for a while atleast.&lt;/p&gt;
-
-&lt;p&gt;I am using &lt;a href=&#34;https://github.com/roryg/ghostwriter&#34;&gt;Ghostwriter theme&lt;/a&gt; and hope to
-stick with it.&lt;/p&gt;
-
-&lt;h1 id=&#34;setup&#34;&gt;Setup&lt;/h1&gt;
-
-&lt;p&gt;The setup was pretty simple:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Install hugo.&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Scaffold &amp;amp; Install themes.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;hugo new site meetmangukiya
-cd meetmangukiya/
-hugo new post/hello-world.md
-
-cd themes
-git clone https://github.com/roryg/ghostwriter
-cd ghostwriter
-npm install
-cd ../../
-
-vim config.toml
-# configuration ...
-hugo server --theme=ghostwriter --buildDrafts
-# go check localhost:1313
-# There, you have a website running already :D
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Build and deploy&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;hugo -t ghostwriter
-cd public
-git init
-git remote add origin &amp;lt;remote&amp;gt;
-git add *
-git commit -m &amp;quot;:rocket: Deploy&amp;quot;
-git push -u origin master
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Automating deploy:
-This goes in &lt;code&gt;deploy.sh&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;hugo -t ghostwriter
-cd public/
-git checkout master
-git add *
-git commit -m &amp;quot;Website Update $(date -u)&amp;quot;
-git push
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;That&amp;rsquo;s it, isn&amp;rsquo;t it just wonderful!&lt;/p&gt;
-</description>
+      <description>Hello World! I am kickstarting this website today. I&amp;rsquo;ve been switching themes and platforms. First I tried Jekyll, but it didn&amp;rsquo;t turn out that good for me. Then I started writing a new website from scratch and dropped it in between :P. Now, I am using hugo, seems pretty cool and easy to use until now. Let&amp;rsquo;s hope I stick around this one for a while atleast.
+I am using Ghostwriter theme and hope to stick with it.</description>
     </item>
     
   </channel>

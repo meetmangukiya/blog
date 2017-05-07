@@ -2,12 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hugo on Meet Mangukiya | My Blog</title>
-    <link>https://meetmangukiya.github.io/tags/hugo/index.xml</link>
+    <link>https://meetmangukiya.github.io/tags/hugo/</link>
     <description>Recent content in Hugo on Meet Mangukiya | My Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Released under the MIT license&lt;br&gt;Powered by [Hugo](//gohugo.io/) with the [Type Theme](//github.com/digitalcraftsman/hugo-type-theme)</copyright>
-    <atom:link href="https://meetmangukiya.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 18 Mar 2017 14:47:27 +0530</lastBuildDate>
+    
+	<atom:link href="https://meetmangukiya.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Up and running with the awesome hugo</title>
@@ -15,70 +18,8 @@
       <pubDate>Sat, 18 Mar 2017 14:47:27 +0530</pubDate>
       
       <guid>https://meetmangukiya.github.io/post/hello-hugo/</guid>
-      <description>
-
-&lt;h1 id=&#34;hello-world&#34;&gt;Hello World!&lt;/h1&gt;
-
-&lt;p&gt;I am kickstarting this website today. I&amp;rsquo;ve been switching themes and platforms.
-First I tried Jekyll, but it didn&amp;rsquo;t turn out that good for me. Then I started
-writing a new website from scratch and dropped it in between :P. Now, I am using
-&lt;a href=&#34;https://gohugo.io&#34;&gt;hugo&lt;/a&gt;, seems pretty cool and easy to use until now. Let&amp;rsquo;s hope
-I stick around this one for a while atleast.&lt;/p&gt;
-
-&lt;p&gt;I am using &lt;a href=&#34;https://github.com/roryg/ghostwriter&#34;&gt;Ghostwriter theme&lt;/a&gt; and hope to
-stick with it.&lt;/p&gt;
-
-&lt;h1 id=&#34;setup&#34;&gt;Setup&lt;/h1&gt;
-
-&lt;p&gt;The setup was pretty simple:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Install hugo.&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Scaffold &amp;amp; Install themes.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;hugo new site meetmangukiya
-cd meetmangukiya/
-hugo new post/hello-world.md
-
-cd themes
-git clone https://github.com/roryg/ghostwriter
-cd ghostwriter
-npm install
-cd ../../
-
-vim config.toml
-# configuration ...
-hugo server --theme=ghostwriter --buildDrafts
-# go check localhost:1313
-# There, you have a website running already :D
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Build and deploy&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;hugo -t ghostwriter
-cd public
-git init
-git remote add origin &amp;lt;remote&amp;gt;
-git add *
-git commit -m &amp;quot;:rocket: Deploy&amp;quot;
-git push -u origin master
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Automating deploy:
-This goes in &lt;code&gt;deploy.sh&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;hugo -t ghostwriter
-cd public/
-git checkout master
-git add *
-git commit -m &amp;quot;Website Update $(date -u)&amp;quot;
-git push
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;That&amp;rsquo;s it, isn&amp;rsquo;t it just wonderful!&lt;/p&gt;
-</description>
+      <description>Hello World! I am kickstarting this website today. I&amp;rsquo;ve been switching themes and platforms. First I tried Jekyll, but it didn&amp;rsquo;t turn out that good for me. Then I started writing a new website from scratch and dropped it in between :P. Now, I am using hugo, seems pretty cool and easy to use until now. Let&amp;rsquo;s hope I stick around this one for a while atleast.
+I am using Ghostwriter theme and hope to stick with it.</description>
     </item>
     
   </channel>
