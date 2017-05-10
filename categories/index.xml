@@ -7,9 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Released under the MIT license&lt;br&gt;Powered by [Hugo](//gohugo.io/) with the [Type Theme](//github.com/digitalcraftsman/hugo-type-theme)</copyright>
-    
-	<atom:link href="https://meetmangukiya.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
-    
+    <atom:link href="https://meetmangukiya.github.io/categories/" rel="self" type="application/rss+xml" />
     
   </channel>
 </rss>
