@@ -7,8 +7,69 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Released under the MIT license&lt;br&gt;Powered by [Hugo](//gohugo.io/) with the [Type Theme](//github.com/digitalcraftsman/hugo-type-theme)</copyright>
-    <lastBuildDate>Sun, 07 May 2017 07:49:38 +0530</lastBuildDate>
+    <lastBuildDate>Fri, 19 May 2017 21:09:27 +0530</lastBuildDate>
     <atom:link href="https://meetmangukiya.github.io/post/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>GSoC community bonding week 2</title>
+      <link>https://meetmangukiya.github.io/post/gsoc-week-2/</link>
+      <pubDate>Fri, 19 May 2017 21:09:27 +0530</pubDate>
+      
+      <guid>https://meetmangukiya.github.io/post/gsoc-week-2/</guid>
+      <description>
+
+&lt;h1 id=&#34;status-update&#34;&gt;Status Update&lt;/h1&gt;
+
+&lt;h2 id=&#34;create-milestones&#34;&gt;Create milestones&lt;/h2&gt;
+
+&lt;p&gt;Started creating milestones for bonding phase and coding phase 1, 2, and 3 and
+populating those milestones with issues.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://gitlab.com/coala/GSoC-2017/milestones/2&#34;&gt;Bonding Milestone&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://gitlab.com/coala/GSoC-2017/milestones/23&#34;&gt;Coding Phase 1 Milestone&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://gitlab.com/coala/GSoC-2017/milestones/24&#34;&gt;Coding Phase 2 Milestone&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://gitlab.com/coala/GSoC-2017/milestones/25&#34;&gt;Coding Phase 3 Milestone&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;search-engine-frameworks-vs-topic-modeling-frameworks&#34;&gt;Search Engine Frameworks VS. Topic Modeling Frameworks&lt;/h2&gt;
+
+&lt;p&gt;Started discussing about the auto-responding feature of corobo. We started by
+weighing &lt;strong&gt;search engine frameworks&lt;/strong&gt; vs. &lt;strong&gt;topic modeling frameworks&lt;/strong&gt;. It was
+decided to use topic modeling frameworks instad of any other search engine
+frameworks like Solr, Lucene, ElasticSearch, etc.&lt;/p&gt;
+
+&lt;p&gt;Related issue: &lt;a href=&#34;https://gitlab.com/coala/GSoC-2017/issues/3&#34;&gt;https://gitlab.com/coala/GSoC-2017/issues/3&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;build-prototype&#34;&gt;Build Prototype&lt;/h2&gt;
+
+&lt;p&gt;Basic steps to retrieve the topic/key of the question:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Pre-process the input text.&lt;/li&gt;
+&lt;li&gt;Train over the input documentation.&lt;/li&gt;
+&lt;li&gt;Use the trained model to retrieve the topic of the question.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;In prototypes, we try to change the training methods, pre-processing methods to
+get as efficient results as possible.&lt;/p&gt;
+
+&lt;p&gt;Prototypes can be found here:
+&lt;a href=&#34;https://github.com/meetmangukiya/topic-modelling-prototype&#34;&gt;https://github.com/meetmangukiya/topic-modelling-prototype&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;basic-repo-structure-and-setup-ci&#34;&gt;Basic repo structure and setup CI&lt;/h2&gt;
+
+&lt;p&gt;The repository for the new cobot is setup at github:
+&lt;a href=&#34;https://github.com/coala/corobo&#34;&gt;https://github.com/coala/corobo&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Travis CI is setup for the repository. coafile is added to the repository.&lt;/p&gt;
+
+&lt;h2 id=&#34;start-writing-a-cep&#34;&gt;Start writing a cEP&lt;/h2&gt;
+
+&lt;p&gt;I started writing a cEP for my GSoC project:
+&lt;a href=&#34;https://github.com/coala/cEPs/pull/77&#34;&gt;https://github.com/coala/cEPs/pull/77&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Accepted for GSoC 2017 at coala</title>
