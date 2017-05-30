@@ -60,9 +60,10 @@ phases will start, more fun follows now!&lt;/p&gt;
 &lt;li&gt;Use tfidf on the documentation with topic and use the one with the highest score as the appropriate doc.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&#34;6-after-retrieving-the-documentation-other-thing-would-be-linking-to-the&#34;&gt;6. After retrieving the documentation, other thing would be linking to the&lt;/h2&gt;
+&lt;h2 id=&#34;6-next-step&#34;&gt;6. Next step&lt;/h2&gt;
 
-&lt;p&gt;documentation and ideally summarizing the same. For summarizing we would be
+&lt;p&gt;After retrieving the documentation, other thing would be linking to the
+   documentation and ideally summarizing the same. For summarizing we would be
    using the summarizer available in the gensim already.(Most probably,
    subjected to change.)&lt;/p&gt;
 </description>
