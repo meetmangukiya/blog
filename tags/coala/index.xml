@@ -7,8 +7,66 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Released under the MIT license&lt;br&gt;Powered by [Hugo](//gohugo.io/) with the [Type Theme](//github.com/digitalcraftsman/hugo-type-theme)</copyright>
-    <lastBuildDate>Fri, 19 May 2017 21:09:27 +0530</lastBuildDate>
+    <lastBuildDate>Tue, 30 May 2017 11:56:02 +0530</lastBuildDate>
     <atom:link href="https://meetmangukiya.github.io/tags/coala/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Final week of community bonding at coala</title>
+      <link>https://meetmangukiya.github.io/post/gsoc-final-week-community-bonding/</link>
+      <pubDate>Tue, 30 May 2017 11:56:02 +0530</pubDate>
+      
+      <guid>https://meetmangukiya.github.io/post/gsoc-final-week-community-bonding/</guid>
+      <description>
+
+&lt;p&gt;So, the community bonding period has finally come to an end and the coding
+phases will start, more fun follows now!&lt;/p&gt;
+
+&lt;p&gt;I already started a bit of coding, I ported some of the plugins.&lt;/p&gt;
+
+&lt;p&gt;Things done in this week:&lt;/p&gt;
+
+&lt;h2 id=&#34;1-added-the-dockerfile&#34;&gt;1. Added the Dockerfile.&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/yukiisbored&#34;&gt;@yukiisbored&lt;/a&gt; created the dockerfile for
+   corobo. He is our devops guy at coala, he does the awesome work of
+   deploying coala website, webservices, blog, gitmate etc. He is awesome!&lt;/p&gt;
+
+&lt;h2 id=&#34;2-the-test-suite-for-the-repo-has-been-set&#34;&gt;2. The test suite for the repo has been set.&lt;/h2&gt;
+
+&lt;p&gt;Tests are written in the &lt;code&gt;tests/&lt;/code&gt; directory. Errbot comes with a pytest
+   fixture &lt;code&gt;testbot&lt;/code&gt; that can be used in testing. The fixture is working
+   pretty well.&lt;/p&gt;
+
+&lt;h2 id=&#34;3-start-contributing&#34;&gt;3. Start contributing&lt;/h2&gt;
+
+&lt;p&gt;Since the repository structure is already laid and the test suite has already
+   been made, outside contributions on various plugins are highly encouraged,
+   for a quick guide headout to our &lt;a href=&#34;https://github.com/coala/corobo/wiki&#34;&gt;wiki&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;4-upstream&#34;&gt;4. Upstream&lt;/h2&gt;
+
+&lt;p&gt;I did some documentation fixes and fixed one wrong assertion upstream in the
+   errbot repo. The gitter channel is quite active, it is helpful to have
+   support upstream :D&lt;/p&gt;
+
+&lt;h2 id=&#34;5-regarding-topic-modeling&#34;&gt;5. Regarding topic modeling:&lt;/h2&gt;
+
+&lt;p&gt;After recognizing the topic for the question, the next thing is to get
+   the answer from the document. This part is what I call &amp;ldquo;Passage
+   retrieval&amp;rdquo;. This was a bit difficult one. There are many possible alternatives.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;We can search the documentation with the topic obtained from the question using a search engine.&lt;/li&gt;
+&lt;li&gt;Use tfidf on the documentation with topic and use the one with the highest score as the appropriate doc.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;6-after-retrieving-the-documentation-other-thing-would-be-linking-to-the&#34;&gt;6. After retrieving the documentation, other thing would be linking to the&lt;/h2&gt;
+
+&lt;p&gt;documentation and ideally summarizing the same. For summarizing we would be
+   using the summarizer available in the gensim already.(Most probably,
+   subjected to change.)&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>GSoC community bonding week 2</title>

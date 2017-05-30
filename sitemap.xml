@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://meetmangukiya.github.io/post/gsoc-final-week-community-bonding/</loc>
+    <lastmod>2017-05-30T11:56:02+05:30</lastmod>
+  </url>
+  
+  <url>
     <loc>https://meetmangukiya.github.io/post/gsoc-week-2/</loc>
     <lastmod>2017-05-19T21:09:27+05:30</lastmod>
   </url>
@@ -28,7 +33,7 @@
   
   <url>
     <loc>https://meetmangukiya.github.io/tags/coala/</loc>
-    <lastmod>2017-05-19T21:09:27+05:30</lastmod>
+    <lastmod>2017-05-30T11:56:02+05:30</lastmod>
     <priority>0</priority>
   </url>
   
@@ -40,19 +45,19 @@
   
   <url>
     <loc>https://meetmangukiya.github.io/</loc>
-    <lastmod>2017-05-19T21:09:27+05:30</lastmod>
+    <lastmod>2017-05-30T11:56:02+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://meetmangukiya.github.io/post/</loc>
-    <lastmod>2017-05-19T21:09:27+05:30</lastmod>
+    <lastmod>2017-05-30T11:56:02+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://meetmangukiya.github.io/tags/</loc>
-    <lastmod>2017-05-19T21:09:27+05:30</lastmod>
+    <lastmod>2017-05-30T11:56:02+05:30</lastmod>
     <priority>0</priority>
   </url>
   

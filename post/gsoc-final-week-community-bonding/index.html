@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<title>Final week of community bonding at coala&middot; Meet Mangukiya | My Blog</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="Meet Mangukiya">
+	<meta name="description" content="My footprint on the WE">
+	
+	<meta name="generator" content="Hugo 0.20.5" />
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="https://meetmangukiya.github.io/css/main.css">
+
+	<!--Favicon-->
+	<link rel="shortcut icon" href="https://meetmangukiya.github.io/favicon.ico" type="image/x-icon">
+
+	<!-- RSS -->
+	
+
+	<!-- Font Awesome -->
+	<link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- Google Fonts -->
+	<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,700italic,400italic" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+    <header class="site-header">
+	<div class="branding">
+		<a href="https://meetmangukiya.github.io/">
+		<img class="avatar" src="https://meetmangukiya.github.io/img/avatar.jpg" alt=""/>
+		</a>
+		<h1 class="site-title">
+			<a href="https://meetmangukiya.github.io/">Meet Mangukiya | My Blog</a>
+		</h1>
+	</div>
+	<nav class="site-nav">
+		<ul>
+	      	
+
+	      	<li>
+	<a href="https://meetmangukiya.github.io/" title="">
+		<i class="fa fa-fw fa-home"></i>
+	</a>
+</li>
+
+<li>
+	<a href="https://meetmangukiya.github.io/index.xml" title="Subcribe">
+		<i class="fa fa-fw fa-rss"></i>
+	</a>
+</li>
+
+<li>
+	<a href="mailto:meet123mangukiya@gmail.com" title="Email">
+		<i class="fa fa-fw fa-envelope"></i>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+<li>
+	<a href="https://github.com/meetmangukiya/" title="GitHub">
+		<i class="fa fa-fw fa-github"></i>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+	<a href="https://twitter.com/meetmangukiya98" title="Twitter">
+		<i class="fa fa-fw fa-twitter"></i>
+	</a>
+</li>
+
+
+
+
+
+
+
+<li>
+	<a href="https://gitlab.com/meetmangukiya" title="Gitlab">
+		<i class="fa fa-fw fa-gitlab"></i>
+	</a>
+</li>
+
+	    </ul>
+	</nav>
+</header>
+
+
+    <div class="content">
+    <article>
+		<header>
+			<h1 class="title">Final week of community bonding at coala</h1>
+			<p class="meta">
+    May 30, 2017 &middot; 2 minute read
+
+    
+        &middot; Tags:
+            <a href="https://meetmangukiya.github.io/tags/coala">coala</a>
+            
+</p>
+
+		</header>
+
+	<section class="post-content">
+		
+
+<p>So, the community bonding period has finally come to an end and the coding
+phases will start, more fun follows now!</p>
+
+<p>I already started a bit of coding, I ported some of the plugins.</p>
+
+<p>Things done in this week:</p>
+
+<h2 id="1-added-the-dockerfile">1. Added the Dockerfile.</h2>
+
+<p><a href="https://github.com/yukiisbored">@yukiisbored</a> created the dockerfile for
+   corobo. He is our devops guy at coala, he does the awesome work of
+   deploying coala website, webservices, blog, gitmate etc. He is awesome!</p>
+
+<h2 id="2-the-test-suite-for-the-repo-has-been-set">2. The test suite for the repo has been set.</h2>
+
+<p>Tests are written in the <code>tests/</code> directory. Errbot comes with a pytest
+   fixture <code>testbot</code> that can be used in testing. The fixture is working
+   pretty well.</p>
+
+<h2 id="3-start-contributing">3. Start contributing</h2>
+
+<p>Since the repository structure is already laid and the test suite has already
+   been made, outside contributions on various plugins are highly encouraged,
+   for a quick guide headout to our <a href="https://github.com/coala/corobo/wiki">wiki</a>.</p>
+
+<h2 id="4-upstream">4. Upstream</h2>
+
+<p>I did some documentation fixes and fixed one wrong assertion upstream in the
+   errbot repo. The gitter channel is quite active, it is helpful to have
+   support upstream :D</p>
+
+<h2 id="5-regarding-topic-modeling">5. Regarding topic modeling:</h2>
+
+<p>After recognizing the topic for the question, the next thing is to get
+   the answer from the document. This part is what I call &ldquo;Passage
+   retrieval&rdquo;. This was a bit difficult one. There are many possible alternatives.</p>
+
+<ol>
+<li>We can search the documentation with the topic obtained from the question using a search engine.</li>
+<li>Use tfidf on the documentation with topic and use the one with the highest score as the appropriate doc.</li>
+</ol>
+
+<h2 id="6-after-retrieving-the-documentation-other-thing-would-be-linking-to-the">6. After retrieving the documentation, other thing would be linking to the</h2>
+
+<p>documentation and ideally summarizing the same. For summarizing we would be
+   using the summarizer available in the gensim already.(Most probably,
+   subjected to change.)</p>
+
+
+		
+	</section>
+    </div>
+
+    <footer class="site-footer">
+	<p class="text">&copy; 2017 - Released under the MIT license<br>Powered by <a href="//gohugo.io/">Hugo</a> with the <a href="//github.com/digitalcraftsman/hugo-type-theme">Type Theme</a></p>
+</footer>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-86162389-3', 'auto');
+ga('send', 'pageview');
+</script>
+
+</body>
+</html>
