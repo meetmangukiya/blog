@@ -7,8 +7,129 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Released under the MIT license&lt;br&gt;Powered by [Hugo](//gohugo.io/) with the [Type Theme](//github.com/digitalcraftsman/hugo-type-theme)</copyright>
-    <lastBuildDate>Tue, 30 May 2017 11:56:02 +0530</lastBuildDate>
+    <lastBuildDate>Thu, 15 Jun 2017 00:22:27 +0530</lastBuildDate>
     <atom:link href="https://meetmangukiya.github.io/tags/coala/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>GSoC Phase-1 Mid</title>
+      <link>https://meetmangukiya.github.io/post/phase-1-mid/</link>
+      <pubDate>Thu, 15 Jun 2017 00:22:27 +0530</pubDate>
+      
+      <guid>https://meetmangukiya.github.io/post/phase-1-mid/</guid>
+      <description>
+
+&lt;p&gt;The coding phase started with the first week of June. Since then:&lt;/p&gt;
+
+&lt;h1 id=&#34;ported-8-plugins&#34;&gt;Ported 8 plugins&lt;/h1&gt;
+
+&lt;p&gt;The 7 plugins ported are:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;explain - It returns an explanatory message for a given term.&lt;/li&gt;
+&lt;li&gt;ghetto&lt;/li&gt;
+&lt;li&gt;lmgtfy - returns a lmgtfy link with a given search string.&lt;/li&gt;
+&lt;li&gt;nevermind - returns a &amp;lsquo;I&amp;rsquo;m sorry&amp;rsquo; message.&lt;/li&gt;
+&lt;li&gt;searchdocs - returns a link to relevant search page.&lt;/li&gt;
+&lt;li&gt;ship-it - returns motivational squirrel images.&lt;/li&gt;
+&lt;li&gt;the-rules - returns bot rules&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;some-things-about-testing-in-errbot&#34;&gt;Some things about testing in errbot&lt;/h2&gt;
+
+&lt;p&gt;All of these 7 plugins were pretty simple to implement. Also, there is a policy
+of 100% test coverage in the corobo repository. So, all the plugins are tested
+as well. Testing is actually an interesting part. Actually the testing statement
+is pretty simple &lt;code&gt;self.assertCommand(&#39;!message that is a command&#39;, &#39;expected
+output of the command.&#39;)&lt;/code&gt;. But there&amp;rsquo;s a lot going on in here.&lt;/p&gt;
+
+&lt;p&gt;First of all, here the &lt;code&gt;self&lt;/code&gt; is actually the instance of a stub of errbot.
+A stub is a minimal working substitution of an object, usually created and used
+in testing.&lt;/p&gt;
+
+&lt;p&gt;Fortunately, the stub is available from errbot itself. There is a pytest fixture
+that can be used to get the stub in your testing function, or you can yourself
+instantiate the &lt;code&gt;TestBot&lt;/code&gt; class appropriately. If you use the fixture, then that
+part is handled by the fixture itself implicitly :D.&lt;/p&gt;
+
+&lt;p&gt;Rough flow is:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Instantiate the bot.&lt;/li&gt;
+&lt;li&gt;Bot collects the plugins.&lt;/li&gt;
+&lt;li&gt;Bot instantiates the plugins.&lt;/li&gt;
+&lt;li&gt;The plugins are activated. (You can override &lt;code&gt;activate&lt;/code&gt; method to perform
+do something during &lt;code&gt;activation&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;After the plugin is activated, bot registers the commands and calls the appropriate command based on whether it is a normal cmd, or a cmd that has to be triggered if the msg matches the given regex viz. &lt;code&gt;re_botcmd&lt;/code&gt;, or a callback cmd that is called on every single message.&lt;/li&gt;
+&lt;li&gt;Well, after the function call it is our plugin taking over and doing the processing and appropriately respond with [a] message/messages.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;one-of-the-biggest-pitfall&#34;&gt;One of the biggest pitfall&lt;/h3&gt;
+
+&lt;p&gt;I had to do some intensive mocking in the &lt;code&gt;LabHub&lt;/code&gt; plugin(PR can be found here
+&lt;a href=&#34;https://github.com/coala/corobo/pull/71)&#34;&gt;https://github.com/coala/corobo/pull/71)&lt;/a&gt;, it is already +300 change and there&amp;rsquo;s
+still much stuff to add all the functionality.&lt;/p&gt;
+
+&lt;p&gt;This plugin is mainly about managing/modifying github and gitlab repositories.
+Like inviting people to the org, creating issues, assigning issues, unassigning
+issues, etc. Since, all of these primarily makes REST API(http requests) calls,
+most of the plugin is tested using mocking the features, essentially monkey
+patching the functions that make the API call and set the return value to
+something sane.&lt;/p&gt;
+
+&lt;p&gt;Usually mocking is about playing with python namespaces and assignign them
+appropriately.&lt;/p&gt;
+
+&lt;p&gt;So the problem that arised was:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;errbot uses &lt;a href=&#34;https://github.com/tibonihoo/yapsy/&#34;&gt;yapsy&lt;/a&gt; for plugin management and loading. So, now, since the loading is done by some third party library it is not possible to access the namespace of the plugin, hence, it cannot be monkey patched. So, to get around this, it took me some time to find solution to this problem. I got away with a dirty workaround on this one. When one instantiates the stub viz. &lt;code&gt;TestBot&lt;/code&gt; class mentioned earlier, it has the yapsy plugin manager as one of the attributes and it could be used to instantiate the plugin directly from the code, manually.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-py&#34;&gt;from errbot.backends.test import TestBot
+import plugin.ThePluginClass
+
+# the stub
+testbot = TestBot()
+testbot.start()
+
+# load and instanciate the plugin
+plug = testbot.bot.plugin_manager.instanciateElement(plugin.ThePluginClass)
+# activate the plugin
+plug.activate()
+
+# patch the plugin.ThePluginClass namespace for mocking
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;\2. So after I found this workaround I used it. It worked for most of the functions properly, other then the callback function. Since the callback function is registered by errbot and our plugin was manually instantiated and activated, it isn&amp;rsquo;t registered to errbot and hence doesn&amp;rsquo;t call the callback function.&lt;/p&gt;
+
+&lt;h1 id=&#34;igitt&#34;&gt;IGitt&lt;/h1&gt;
+
+&lt;p&gt;In last few days I started contributing to &lt;a href=&#34;https://gitlab.com/gitmate/open-source/IGitt&#34;&gt;IGitt&lt;/a&gt;. I wanted to use it in the &lt;code&gt;LabHub&lt;/code&gt; plugin. Since I had both GitHub and GitLab utilities to manage, IGitt was the perfect choice. It provides with a unified interface for various Git-hosting services, it is awesome, isn&amp;rsquo;t it?&lt;/p&gt;
+
+&lt;p&gt;I implemented some small things that I needed for my plugins, and also wrote
+tests for the GitHub implementation. Testing in IGitt was previously done
+through doctests and making real API calls. So, we came up with idea that we
+should record API requests and then reuse it, instead of making API calls on
+each build. Thanks to the open-source community, there are already
+things/libraries that do that. We used vcrpy for that. What vcr does is records
+the http requests, with responses, headers and almost all the data in a file
+which is called cassette. Then, it plays the cassettes, i.e. returns the
+responses from the files to the requests made in the code. Hence, it is a &lt;em&gt;vcr&lt;/em&gt;
+replaying and recording http &lt;em&gt;cassettes&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;The review process was pretty quick, thanks to @fneu, @sils, @nkprince007 which
+are almost all the contributors of IGitt ATM. Since the review process was quick
+I can quickly integrate the same in my corobo plugin. It is awesome!&lt;/p&gt;
+
+&lt;p&gt;Helpful Links:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Monkey_patch&#34;&gt;https://en.wikipedia.org/wiki/Monkey_patch&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Mock_object&#34;&gt;https://en.wikipedia.org/wiki/Mock_object&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Test-driven_development&#34;&gt;https://en.wikipedia.org/wiki/Test-driven_development&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
     
     <item>
       <title>Final week of community bonding at coala</title>
