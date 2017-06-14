@@ -52,8 +52,7 @@ Rough flow is:
 
 ### One of the biggest pitfall
 
-I had to do some intensive mocking in the `LabHub` plugin(PR can be found here
-https://github.com/coala/corobo/pull/71), it is already +300 change and there's
+I had to do some intensive mocking in the `LabHub` plugin(PR can be found here https://github.com/coala/corobo/pull/71 ), it is already +300 change and there's
 still much stuff to add all the functionality.
 
 This plugin is mainly about managing/modifying github and gitlab repositories.
