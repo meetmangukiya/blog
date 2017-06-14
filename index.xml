@@ -65,8 +65,7 @@ do something during &lt;code&gt;activation&lt;/code&gt;).&lt;/li&gt;
 
 &lt;h3 id=&#34;one-of-the-biggest-pitfall&#34;&gt;One of the biggest pitfall&lt;/h3&gt;
 
-&lt;p&gt;I had to do some intensive mocking in the &lt;code&gt;LabHub&lt;/code&gt; plugin(PR can be found here
-&lt;a href=&#34;https://github.com/coala/corobo/pull/71)&#34;&gt;https://github.com/coala/corobo/pull/71)&lt;/a&gt;, it is already +300 change and there&amp;rsquo;s
+&lt;p&gt;I had to do some intensive mocking in the &lt;code&gt;LabHub&lt;/code&gt; plugin(PR can be found here &lt;a href=&#34;https://github.com/coala/corobo/pull/71&#34;&gt;https://github.com/coala/corobo/pull/71&lt;/a&gt; ), it is already +300 change and there&amp;rsquo;s
 still much stuff to add all the functionality.&lt;/p&gt;
 
 &lt;p&gt;This plugin is mainly about managing/modifying github and gitlab repositories.
