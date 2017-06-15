@@ -20,7 +20,7 @@
 
 &lt;p&gt;The coding phase started with the first week of June. Since then:&lt;/p&gt;
 
-&lt;h1 id=&#34;ported-8-plugins&#34;&gt;Ported 8 plugins&lt;/h1&gt;
+&lt;h1 id=&#34;ported-6-plugins-created-1-new-plugin&#34;&gt;Ported 6 plugins, created 1 new plugin&lt;/h1&gt;
 
 &lt;p&gt;The 7 plugins ported are:&lt;/p&gt;
 
@@ -29,10 +29,11 @@
 &lt;li&gt;ghetto&lt;/li&gt;
 &lt;li&gt;lmgtfy - returns a lmgtfy link with a given search string.&lt;/li&gt;
 &lt;li&gt;nevermind - returns a &amp;lsquo;I&amp;rsquo;m sorry&amp;rsquo; message.&lt;/li&gt;
-&lt;li&gt;searchdocs - returns a link to relevant search page.&lt;/li&gt;
 &lt;li&gt;ship-it - returns motivational squirrel images.&lt;/li&gt;
 &lt;li&gt;the-rules - returns bot rules&lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;p&gt;One new plugin that was created is:&lt;/p&gt;
 
 &lt;h2 id=&#34;some-things-about-testing-in-errbot&#34;&gt;Some things about testing in errbot&lt;/h2&gt;
 
@@ -80,14 +81,14 @@ appropriately.&lt;/p&gt;
 
 &lt;p&gt;So the problem that arised was:&lt;/p&gt;
 
-&lt;ol&gt;
-&lt;li&gt;errbot uses &lt;a href=&#34;https://github.com/tibonihoo/yapsy/&#34;&gt;yapsy&lt;/a&gt; for plugin management and loading. So, now, since the loading is done by some third party library it is not possible to access the namespace of the plugin, hence, it cannot be monkey patched. So, to get around this, it took me some time to find solution to this problem. I got away with a dirty workaround on this one. When one instantiates the stub viz. &lt;code&gt;TestBot&lt;/code&gt; class mentioned earlier, it has the yapsy plugin manager as one of the attributes and it could be used to instantiate the plugin directly from the code, manually.&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h1 id=&#34;1&#34;&gt;#1.&lt;/h1&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-py&#34;&gt;from errbot.backends.test import TestBot
-import plugin.ThePluginClass
+&lt;p&gt;errbot uses &lt;a href=&#34;https://github.com/tibonihoo/yapsy/&#34;&gt;yapsy&lt;/a&gt; for plugin management and loading. So, now, since the loading is done by some third party library it is not possible to access the namespace of the plugin, hence, it cannot be monkey patched. So, to get around this, it took me some time to find solution to this problem. I got away with a dirty workaround on this one. When one instantiates the stub viz. &lt;code&gt;TestBot&lt;/code&gt; class mentioned earlier, it has the yapsy plugin manager as one of the attributes and it could be used to instantiate the plugin directly from the code, manually.
+    ```py
+    from errbot.backends.test import TestBot
+    import plugin.ThePluginClass&lt;/p&gt;
 
-# the stub
+&lt;pre&gt;&lt;code&gt;# the stub
 testbot = TestBot()
 testbot.start()
 
@@ -97,9 +98,12 @@ plug = testbot.bot.plugin_manager.instanciateElement(plugin.ThePluginClass)
 plug.activate()
 
 # patch the plugin.ThePluginClass namespace for mocking
+```
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;\2. So after I found this workaround I used it. It worked for most of the functions properly, other then the callback function. Since the callback function is registered by errbot and our plugin was manually instantiated and activated, it isn&amp;rsquo;t registered to errbot and hence doesn&amp;rsquo;t call the callback function.&lt;/p&gt;
+&lt;h1 id=&#34;2&#34;&gt;#2.&lt;/h1&gt;
+
+&lt;p&gt;So after I found this workaround I used it. It worked for most of the functions properly, other then the callback function. Since the callback function is registered by errbot and our plugin was manually instantiated and activated, it isn&amp;rsquo;t registered to errbot and hence doesn&amp;rsquo;t call the callback function.&lt;/p&gt;
 
 &lt;h1 id=&#34;igitt&#34;&gt;IGitt&lt;/h1&gt;
 
@@ -116,8 +120,8 @@ which is called cassette. Then, it plays the cassettes, i.e. returns the
 responses from the files to the requests made in the code. Hence, it is a &lt;em&gt;vcr&lt;/em&gt;
 replaying and recording http &lt;em&gt;cassettes&lt;/em&gt;.&lt;/p&gt;
 
-&lt;p&gt;The review process was pretty quick, thanks to @fneu, @sils, @nkprince007 which
-are almost all the contributors of IGitt ATM. Since the review process was quick
+&lt;p&gt;The review process was pretty quick, thanks to @fneu, @sils, @nkprince007,
+@jayvdb which are almost all the contributors of IGitt ATM. Since the review process was quick
 I can quickly integrate the same in my corobo plugin. It is awesome!&lt;/p&gt;
 
 &lt;p&gt;Helpful Links:&lt;/p&gt;

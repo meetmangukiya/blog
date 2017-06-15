@@ -138,7 +138,7 @@
 
 <p>The coding phase started with the first week of June. Since then:</p>
 
-<h1 id="ported-8-plugins">Ported 8 plugins</h1>
+<h1 id="ported-6-plugins-created-1-new-plugin">Ported 6 plugins, created 1 new plugin</h1>
 
 <p>The 7 plugins ported are:</p>
 
@@ -147,10 +147,11 @@
 <li>ghetto</li>
 <li>lmgtfy - returns a lmgtfy link with a given search string.</li>
 <li>nevermind - returns a &lsquo;I&rsquo;m sorry&rsquo; message.</li>
-<li>searchdocs - returns a link to relevant search page.</li>
 <li>ship-it - returns motivational squirrel images.</li>
 <li>the-rules - returns bot rules</li>
 </ol>
+
+<p>One new plugin that was created is:</p>
 
 <h2 id="some-things-about-testing-in-errbot">Some things about testing in errbot</h2>
 
@@ -198,14 +199,14 @@ appropriately.</p>
 
 <p>So the problem that arised was:</p>
 
-<ol>
-<li>errbot uses <a href="https://github.com/tibonihoo/yapsy/">yapsy</a> for plugin management and loading. So, now, since the loading is done by some third party library it is not possible to access the namespace of the plugin, hence, it cannot be monkey patched. So, to get around this, it took me some time to find solution to this problem. I got away with a dirty workaround on this one. When one instantiates the stub viz. <code>TestBot</code> class mentioned earlier, it has the yapsy plugin manager as one of the attributes and it could be used to instantiate the plugin directly from the code, manually.</li>
-</ol>
+<h1 id="1">#1.</h1>
 
-<pre><code class="language-py">from errbot.backends.test import TestBot
-import plugin.ThePluginClass
+<p>errbot uses <a href="https://github.com/tibonihoo/yapsy/">yapsy</a> for plugin management and loading. So, now, since the loading is done by some third party library it is not possible to access the namespace of the plugin, hence, it cannot be monkey patched. So, to get around this, it took me some time to find solution to this problem. I got away with a dirty workaround on this one. When one instantiates the stub viz. <code>TestBot</code> class mentioned earlier, it has the yapsy plugin manager as one of the attributes and it could be used to instantiate the plugin directly from the code, manually.
+    ```py
+    from errbot.backends.test import TestBot
+    import plugin.ThePluginClass</p>
 
-# the stub
+<pre><code># the stub
 testbot = TestBot()
 testbot.start()
 
@@ -215,9 +216,12 @@ plug = testbot.bot.plugin_manager.instanciateElement(plugin.ThePluginClass)
 plug.activate()
 
 # patch the plugin.ThePluginClass namespace for mocking
+```
 </code></pre>
 
-<p>\2. So after I found this workaround I used it. It worked for most of the functions properly, other then the callback function. Since the callback function is registered by errbot and our plugin was manually instantiated and activated, it isn&rsquo;t registered to errbot and hence doesn&rsquo;t call the callback function.</p>
+<h1 id="2">#2.</h1>
+
+<p>So after I found this workaround I used it. It worked for most of the functions properly, other then the callback function. Since the callback function is registered by errbot and our plugin was manually instantiated and activated, it isn&rsquo;t registered to errbot and hence doesn&rsquo;t call the callback function.</p>
 
 <h1 id="igitt">IGitt</h1>
 
@@ -234,8 +238,8 @@ which is called cassette. Then, it plays the cassettes, i.e. returns the
 responses from the files to the requests made in the code. Hence, it is a <em>vcr</em>
 replaying and recording http <em>cassettes</em>.</p>
 
-<p>The review process was pretty quick, thanks to @fneu, @sils, @nkprince007 which
-are almost all the contributors of IGitt ATM. Since the review process was quick
+<p>The review process was pretty quick, thanks to @fneu, @sils, @nkprince007,
+@jayvdb which are almost all the contributors of IGitt ATM. Since the review process was quick
 I can quickly integrate the same in my corobo plugin. It is awesome!</p>
 
 <p>Helpful Links:</p>
