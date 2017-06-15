@@ -35,6 +35,10 @@
 
 &lt;p&gt;One new plugin that was created is:&lt;/p&gt;
 
+&lt;ol&gt;
+&lt;li&gt;searchdocs - retuns a link to relevant search page.&lt;/li&gt;
+&lt;/ol&gt;
+
 &lt;h2 id=&#34;some-things-about-testing-in-errbot&#34;&gt;Some things about testing in errbot&lt;/h2&gt;
 
 &lt;p&gt;All of these 7 plugins were pretty simple to implement. Also, there is a policy
