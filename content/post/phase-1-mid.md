@@ -11,7 +11,7 @@ title = "GSoC Phase-1 Mid"
 
 The coding phase started with the first week of June. Since then:
 
-# Ported 8 plugins
+# Ported 6 plugins, created 1 new plugin
 
 The 7 plugins ported are:
 
@@ -19,9 +19,12 @@ The 7 plugins ported are:
 2. ghetto
 3. lmgtfy - returns a lmgtfy link with a given search string.
 4. nevermind - returns a 'I'm sorry' message.
-5. searchdocs - returns a link to relevant search page.
-6. ship-it - returns motivational squirrel images.
-7. the-rules - returns bot rules
+5. ship-it - returns motivational squirrel images.
+6. the-rules - returns bot rules
+
+One new plugin that was created is:
+
+1. searchdocs - retuns a link to relevant search page.
 
 ## Some things about testing in errbot
 
@@ -67,25 +70,26 @@ appropriately.
 
 So the problem that arised was:
 
-1. errbot uses [yapsy](https://github.com/tibonihoo/yapsy/) for plugin management and loading. So, now, since the loading is done by some third party library it is not possible to access the namespace of the plugin, hence, it cannot be monkey patched. So, to get around this, it took me some time to find solution to this problem. I got away with a dirty workaround on this one. When one instantiates the stub viz. `TestBot` class mentioned earlier, it has the yapsy plugin manager as one of the attributes and it could be used to instantiate the plugin directly from the code, manually.
+# #1.
+errbot uses [yapsy](https://github.com/tibonihoo/yapsy/) for plugin management and loading. So, now, since the loading is done by some third party library it is not possible to access the namespace of the plugin, hence, it cannot be monkey patched. So, to get around this, it took me some time to find solution to this problem. I got away with a dirty workaround on this one. When one instantiates the stub viz. `TestBot` class mentioned earlier, it has the yapsy plugin manager as one of the attributes and it could be used to instantiate the plugin directly from the code, manually.
+    ```py
+    from errbot.backends.test import TestBot
+    import plugin.ThePluginClass
 
-```py
-from errbot.backends.test import TestBot
-import plugin.ThePluginClass
+    # the stub
+    testbot = TestBot()
+    testbot.start()
 
-# the stub
-testbot = TestBot()
-testbot.start()
+    # load and instanciate the plugin
+    plug = testbot.bot.plugin_manager.instanciateElement(plugin.ThePluginClass)
+    # activate the plugin
+    plug.activate()
 
-# load and instanciate the plugin
-plug = testbot.bot.plugin_manager.instanciateElement(plugin.ThePluginClass)
-# activate the plugin
-plug.activate()
+    # patch the plugin.ThePluginClass namespace for mocking
+    ```
 
-# patch the plugin.ThePluginClass namespace for mocking
-```
-
-\2. So after I found this workaround I used it. It worked for most of the functions properly, other then the callback function. Since the callback function is registered by errbot and our plugin was manually instantiated and activated, it isn't registered to errbot and hence doesn't call the callback function.
+# #2.
+So after I found this workaround I used it. It worked for most of the functions properly, other then the callback function. Since the callback function is registered by errbot and our plugin was manually instantiated and activated, it isn't registered to errbot and hence doesn't call the callback function.
 
 # IGitt
 
@@ -102,8 +106,8 @@ which is called cassette. Then, it plays the cassettes, i.e. returns the
 responses from the files to the requests made in the code. Hence, it is a _vcr_
 replaying and recording http _cassettes_.
 
-The review process was pretty quick, thanks to @fneu, @sils, @nkprince007 which
-are almost all the contributors of IGitt ATM. Since the review process was quick
+The review process was pretty quick, thanks to @fneu, @sils, @nkprince007,
+@jayvdb which are almost all the contributors of IGitt ATM. Since the review process was quick
 I can quickly integrate the same in my corobo plugin. It is awesome!
 
 Helpful Links:
