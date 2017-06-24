@@ -1,21 +1,98 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Coala on Meet Mangukiya | My Blog</title>
-    <link>https://meetmangukiya.github.io/tags/coala/</link>
-    <description>Recent content in Coala on Meet Mangukiya | My Blog</description>
+    <title>Coala on Meet Mangukiya | Blog</title>
+    <link>https://example.org/tags/coala/</link>
+    <description>Recent content in Coala on Meet Mangukiya | Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Released under the MIT license&lt;br&gt;Powered by [Hugo](//gohugo.io/) with the [Type Theme](//github.com/digitalcraftsman/hugo-type-theme)</copyright>
-    <lastBuildDate>Thu, 15 Jun 2017 00:22:27 +0530</lastBuildDate>
-    <atom:link href="https://meetmangukiya.github.io/tags/coala/" rel="self" type="application/rss+xml" />
+    <copyright>Released under the MIT license.</copyright>
+    <lastBuildDate>Sat, 24 Jun 2017 23:53:01 +0530</lastBuildDate>
+    <atom:link href="https://example.org/tags/coala/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>GSoC Phase-1 End</title>
+      <link>https://example.org/post/phase-1-end/</link>
+      <pubDate>Sat, 24 Jun 2017 23:53:01 +0530</pubDate>
+      
+      <guid>https://example.org/post/phase-1-end/</guid>
+      <description>
+
+&lt;p&gt;GSoC Phase-1 End
+Hey!
+It is end of June and phase-1 already! Time flies, doesn&amp;rsquo;t it?(except when you are waiting for a review of your PR :P)&lt;/p&gt;
+
+&lt;p&gt;In the last blog post, there were 7 plugins, now there are total 11 plugins. All the old plugins have been ported and functional.&lt;/p&gt;
+
+&lt;p&gt;New plugins that weren&amp;rsquo;t in the last post are:
+1. WolframAlpha plugin - Used to query wolfram alpha from chat.
+2. Coatils - Awesome stats regarding coala and contributors.
+3. Coala_lowercase_c - To tell the user that coala and cEPs are always written with lowercase c.
+4. LabHub - This the plugin whose Mega PR was still under review during the last post.&lt;/p&gt;
+
+&lt;p&gt;This is version 1.1 of corobo. Here&amp;rsquo;s the changelog:&lt;/p&gt;
+
+&lt;h2 id=&#34;changelog-from-cobot-to-corobo&#34;&gt;Changelog(from cobot to corobo):&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Framework - Moved to &lt;a href=&#34;http://errbot.io&#34;&gt;errbot&lt;/a&gt; ;) It&amp;rsquo;s all python now!&lt;/li&gt;
+&lt;li&gt;Assigning, creating, unassigning, and marking PRs pending and wip are working for gitlab repos as well.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;new-stuff&#34;&gt;New stuff&lt;/h2&gt;
+
+&lt;h3 id=&#34;stats&#34;&gt;Stats!&lt;/h3&gt;
+
+&lt;p&gt;Various coala related stats are now available through corobo:
+1. Contribution Stats:&lt;br /&gt;
+    If you don&amp;rsquo;t know, we maintain coala contributors&amp;rsquo; contributions stats at coala.io. The contribution stats are available through &lt;a href=&#34;http://webservices.coala.io/contrib/&#34;&gt;http://webservices.coala.io/contrib/&lt;/a&gt; endpoint. The same is used to get this stats.
+2. Bear stats:&lt;br /&gt;
+   Returns number of bears that are currently available. As of now there are 102 bears!! That is a huge number, isn&amp;rsquo;t it?
+3. Bear stats for given langauge:&lt;br /&gt;
+    You can even get number of bears of a particular language using &lt;code&gt;corobo bear stats &amp;lt;lang&amp;gt;&lt;/code&gt;.
+4. Lang stats:&lt;br /&gt;
+    Returns the number of languages coala supports. As of now coala supports 63 languages!
+5. stats:&lt;br /&gt;
+    This returns both the number of bears and number of languages supported.&lt;/p&gt;
+
+&lt;h3 id=&#34;labhub&#34;&gt;LabHub&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Issue Assignment:&lt;br /&gt;
+To assign yourself to given issue. However, this assign is smarter then earlier. It performs checks of eligibility before assigning the issue. Currently there is one check which allows newcomers to only assign themselves to issues that are labeled newcomer or low difficulty.&lt;/li&gt;
+&lt;li&gt;Creating new issues:&lt;br /&gt;
+ You can create issues on coala repositories both across GitLab and GitHub.&lt;/li&gt;
+&lt;li&gt;Inviting users:&lt;br /&gt;
+This is available to maintainers only. It is used to invite users to different teams namely newcomers, developers, maintainers team.&lt;/li&gt;
+&lt;li&gt;Marking PR status:&lt;br /&gt;
+We, at coala, mark PRs that are work in progress with label process/wip and those that are awaiting review as process/pending review. This command allows you to label PR status. So, if you&amp;rsquo;ve reviewed a PR and PR needs more work, you mark it wip. If you&amp;rsquo;ve done the required changes and want the PR to be reviewed again, you mark it pending.&lt;/li&gt;
+&lt;li&gt;Unassigning:&lt;br /&gt;
+Unassigns the given user from the issue.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;raml&#34;&gt;RAML&lt;/h2&gt;
+
+&lt;p&gt;Since, I was consuming webservices.coala.io, I used RAML to express the API, and generate a client from the RAML file. I used &lt;a href=&#34;https://github.com/timofurrer/ramlient&#34;&gt;ramlient&lt;/a&gt; to generate the client. If you are using RAML to describe your API, you should check ramlient, however it is still in early stages. It doesn&amp;rsquo;t use all the information from the RAML file.
+It wasn&amp;rsquo;t working earlier, then we reached out to the original author who agreed to help with the development :D . He reviewed and merged pretty quickly, and released the same.&lt;/p&gt;
+
+&lt;p&gt;I searched for python client generators, but there were pretty less options. There was nsxramlclient, but it was python2 and also it didn&amp;rsquo;t support RAML 1.0&lt;/p&gt;
+
+&lt;h2 id=&#34;igitt&#34;&gt;IGitt&lt;/h2&gt;
+
+&lt;p&gt;We talked about this lovely piece of software in my last post, remember? Well, everything was working in the LabHub plugin except that the gitlab repos can&amp;rsquo;t be used :O . The reason being IGitt only supported authentication using OAuth tokens, since that was the primary usecase at GitMate. I wasn&amp;rsquo;t aware of that until then. Then we created a new &lt;code&gt;Token&lt;/code&gt; base class in the interface. &lt;code&gt;GitHubToken&lt;/code&gt; was implemented for GitHub. &lt;code&gt;GitLabPrivateToken&lt;/code&gt;, and &lt;code&gt;GitLabOAuthToken&lt;/code&gt; were implemented for GitLab. We completely changed the process of Authentication with that PR. It was a breaking change. If one used the earlier authentication mode, then on update everything will be broken. Fix it if you are using IGitt and read this ;)&lt;/p&gt;
+
+&lt;p&gt;corobo was left in the wild yesterday. A bug surfaced after that which have been fixed and a PR is created. And a few bugs in errbot gitter backend as well. Awaiting community review on the new version of cobot - the corobo!&lt;/p&gt;
+
+&lt;p&gt;That&amp;rsquo;s it for now, will meet in a couple of weeks now :D&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>GSoC Phase-1 Mid</title>
-      <link>https://meetmangukiya.github.io/post/phase-1-mid/</link>
+      <link>https://example.org/post/phase-1-mid/</link>
       <pubDate>Thu, 15 Jun 2017 00:22:27 +0530</pubDate>
       
-      <guid>https://meetmangukiya.github.io/post/phase-1-mid/</guid>
+      <guid>https://example.org/post/phase-1-mid/</guid>
       <description>
 
 &lt;p&gt;The coding phase started with the first week of June. Since then:&lt;/p&gt;
@@ -140,10 +217,10 @@ I can quickly integrate the same in my corobo plugin. It is awesome!&lt;/p&gt;
     
     <item>
       <title>Final week of community bonding at coala</title>
-      <link>https://meetmangukiya.github.io/post/gsoc-final-week-community-bonding/</link>
+      <link>https://example.org/post/gsoc-final-week-community-bonding/</link>
       <pubDate>Tue, 30 May 2017 11:56:02 +0530</pubDate>
       
-      <guid>https://meetmangukiya.github.io/post/gsoc-final-week-community-bonding/</guid>
+      <guid>https://example.org/post/gsoc-final-week-community-bonding/</guid>
       <description>
 
 &lt;p&gt;So, the community bonding period has finally come to an end and the coding
@@ -199,10 +276,10 @@ phases will start, more fun follows now!&lt;/p&gt;
     
     <item>
       <title>GSoC community bonding week 2</title>
-      <link>https://meetmangukiya.github.io/post/gsoc-week-2/</link>
+      <link>https://example.org/post/gsoc-week-2/</link>
       <pubDate>Fri, 19 May 2017 21:09:27 +0530</pubDate>
       
-      <guid>https://meetmangukiya.github.io/post/gsoc-week-2/</guid>
+      <guid>https://example.org/post/gsoc-week-2/</guid>
       <description>
 
 &lt;h1 id=&#34;status-update&#34;&gt;Status Update&lt;/h1&gt;
@@ -260,10 +337,10 @@ get as efficient results as possible.&lt;/p&gt;
     
     <item>
       <title>Accepted for GSoC 2017 at coala</title>
-      <link>https://meetmangukiya.github.io/post/accepted-for-gsoc/</link>
+      <link>https://example.org/post/accepted-for-gsoc/</link>
       <pubDate>Sun, 07 May 2017 07:49:38 +0530</pubDate>
       
-      <guid>https://meetmangukiya.github.io/post/accepted-for-gsoc/</guid>
+      <guid>https://example.org/post/accepted-for-gsoc/</guid>
       <description>
 
 &lt;h1 id=&#34;accepted-for-gsoc&#34;&gt;Accepted for GSoC&lt;/h1&gt;
@@ -272,7 +349,7 @@ get as efficient results as possible.&lt;/p&gt;
 And the results were declared on 4th May, and guess what? I am accepted as a
 GSoC student!! How awesome is that?! :D&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://meetmangukiya.github.io/img/gsoc_email.png&#34; alt=&#34;GSoC Acceptance Email&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://example.org/img/gsoc_email.png&#34; alt=&#34;GSoC Acceptance Email&#34; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&#34;so-what-lies-further&#34;&gt;So what lies further&lt;/h1&gt;
 
@@ -310,10 +387,10 @@ of my project.&lt;/p&gt;
     
     <item>
       <title>GSoC Proposal - Debugger for coala bears</title>
-      <link>https://meetmangukiya.github.io/post/gsoc-coala-debugger/</link>
+      <link>https://example.org/post/gsoc-coala-debugger/</link>
       <pubDate>Sun, 19 Mar 2017 18:15:48 +0530</pubDate>
       
-      <guid>https://meetmangukiya.github.io/post/gsoc-coala-debugger/</guid>
+      <guid>https://example.org/post/gsoc-coala-debugger/</guid>
       <description>
 
 &lt;h1 id=&#34;i-am-applying-for-google-summer-of-code&#34;&gt;I am applying for Google Summer of Code&lt;/h1&gt;
