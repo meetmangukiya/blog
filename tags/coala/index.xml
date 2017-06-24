@@ -8,7 +8,9 @@
     <language>en-us</language>
     <copyright>Released under the MIT license.</copyright>
     <lastBuildDate>Sat, 24 Jun 2017 23:53:01 +0530</lastBuildDate>
-    <atom:link href="https://meetmangukiya.github.io/tags/coala/" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="https://meetmangukiya.github.io/tags/coala/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>GSoC Phase-1 End</title>
@@ -16,75 +18,9 @@
       <pubDate>Sat, 24 Jun 2017 23:53:01 +0530</pubDate>
       
       <guid>https://meetmangukiya.github.io/post/phase-1-end/</guid>
-      <description>
-
-&lt;p&gt;GSoC Phase-1 End
-Hey!
-It is end of June and phase-1 already! Time flies, doesn&amp;rsquo;t it?(except when you are waiting for a review of your PR :P)&lt;/p&gt;
-
-&lt;p&gt;In the last blog post, there were 7 plugins, now there are total 11 plugins. All the old plugins have been ported and functional.&lt;/p&gt;
-
-&lt;p&gt;New plugins that weren&amp;rsquo;t in the last post are:
-1. WolframAlpha plugin - Used to query wolfram alpha from chat.
-2. Coatils - Awesome stats regarding coala and contributors.
-3. Coala_lowercase_c - To tell the user that coala and cEPs are always written with lowercase c.
-4. LabHub - This the plugin whose Mega PR was still under review during the last post.&lt;/p&gt;
-
-&lt;p&gt;This is version 1.1 of corobo. Here&amp;rsquo;s the changelog:&lt;/p&gt;
-
-&lt;h2 id=&#34;changelog-from-cobot-to-corobo&#34;&gt;Changelog(from cobot to corobo):&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Framework - Moved to &lt;a href=&#34;http://errbot.io&#34;&gt;errbot&lt;/a&gt; ;) It&amp;rsquo;s all python now!&lt;/li&gt;
-&lt;li&gt;Assigning, creating, unassigning, and marking PRs pending and wip are working for gitlab repos as well.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&#34;new-stuff&#34;&gt;New stuff&lt;/h2&gt;
-
-&lt;h3 id=&#34;stats&#34;&gt;Stats!&lt;/h3&gt;
-
-&lt;p&gt;Various coala related stats are now available through corobo:
-1. Contribution Stats:&lt;br /&gt;
-    If you don&amp;rsquo;t know, we maintain coala contributors&amp;rsquo; contributions stats at coala.io. The contribution stats are available through &lt;a href=&#34;http://webservices.coala.io/contrib/&#34;&gt;http://webservices.coala.io/contrib/&lt;/a&gt; endpoint. The same is used to get this stats.
-2. Bear stats:&lt;br /&gt;
-   Returns number of bears that are currently available. As of now there are 102 bears!! That is a huge number, isn&amp;rsquo;t it?
-3. Bear stats for given langauge:&lt;br /&gt;
-    You can even get number of bears of a particular language using &lt;code&gt;corobo bear stats &amp;lt;lang&amp;gt;&lt;/code&gt;.
-4. Lang stats:&lt;br /&gt;
-    Returns the number of languages coala supports. As of now coala supports 63 languages!
-5. stats:&lt;br /&gt;
-    This returns both the number of bears and number of languages supported.&lt;/p&gt;
-
-&lt;h3 id=&#34;labhub&#34;&gt;LabHub&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Issue Assignment:&lt;br /&gt;
-To assign yourself to given issue. However, this assign is smarter then earlier. It performs checks of eligibility before assigning the issue. Currently there is one check which allows newcomers to only assign themselves to issues that are labeled newcomer or low difficulty.&lt;/li&gt;
-&lt;li&gt;Creating new issues:&lt;br /&gt;
- You can create issues on coala repositories both across GitLab and GitHub.&lt;/li&gt;
-&lt;li&gt;Inviting users:&lt;br /&gt;
-This is available to maintainers only. It is used to invite users to different teams namely newcomers, developers, maintainers team.&lt;/li&gt;
-&lt;li&gt;Marking PR status:&lt;br /&gt;
-We, at coala, mark PRs that are work in progress with label process/wip and those that are awaiting review as process/pending review. This command allows you to label PR status. So, if you&amp;rsquo;ve reviewed a PR and PR needs more work, you mark it wip. If you&amp;rsquo;ve done the required changes and want the PR to be reviewed again, you mark it pending.&lt;/li&gt;
-&lt;li&gt;Unassigning:&lt;br /&gt;
-Unassigns the given user from the issue.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&#34;raml&#34;&gt;RAML&lt;/h2&gt;
-
-&lt;p&gt;Since, I was consuming webservices.coala.io, I used RAML to express the API, and generate a client from the RAML file. I used &lt;a href=&#34;https://github.com/timofurrer/ramlient&#34;&gt;ramlient&lt;/a&gt; to generate the client. If you are using RAML to describe your API, you should check ramlient, however it is still in early stages. It doesn&amp;rsquo;t use all the information from the RAML file.
-It wasn&amp;rsquo;t working earlier, then we reached out to the original author who agreed to help with the development :D . He reviewed and merged pretty quickly, and released the same.&lt;/p&gt;
-
-&lt;p&gt;I searched for python client generators, but there were pretty less options. There was nsxramlclient, but it was python2 and also it didn&amp;rsquo;t support RAML 1.0&lt;/p&gt;
-
-&lt;h2 id=&#34;igitt&#34;&gt;IGitt&lt;/h2&gt;
-
-&lt;p&gt;We talked about this lovely piece of software in my last post, remember? Well, everything was working in the LabHub plugin except that the gitlab repos can&amp;rsquo;t be used :O . The reason being IGitt only supported authentication using OAuth tokens, since that was the primary usecase at GitMate. I wasn&amp;rsquo;t aware of that until then. Then we created a new &lt;code&gt;Token&lt;/code&gt; base class in the interface. &lt;code&gt;GitHubToken&lt;/code&gt; was implemented for GitHub. &lt;code&gt;GitLabPrivateToken&lt;/code&gt;, and &lt;code&gt;GitLabOAuthToken&lt;/code&gt; were implemented for GitLab. We completely changed the process of Authentication with that PR. It was a breaking change. If one used the earlier authentication mode, then on update everything will be broken. Fix it if you are using IGitt and read this ;)&lt;/p&gt;
-
-&lt;p&gt;corobo was left in the wild yesterday. A bug surfaced after that which have been fixed and a PR is created. And a few bugs in errbot gitter backend as well. Awaiting community review on the new version of cobot - the corobo!&lt;/p&gt;
-
-&lt;p&gt;That&amp;rsquo;s it for now, will meet in a couple of weeks now :D&lt;/p&gt;
-</description>
+      <description>GSoC Phase-1 End Hey! It is end of June and phase-1 already! Time flies, doesn&amp;rsquo;t it?(except when you are waiting for a review of your PR :P)
+In the last blog post, there were 7 plugins, now there are total 11 plugins. All the old plugins have been ported and functional.
+New plugins that weren&amp;rsquo;t in the last post are: 1. WolframAlpha plugin - Used to query wolfram alpha from chat.</description>
     </item>
     
     <item>
@@ -93,126 +29,9 @@ It wasn&amp;rsquo;t working earlier, then we reached out to the original author 
       <pubDate>Thu, 15 Jun 2017 00:22:27 +0530</pubDate>
       
       <guid>https://meetmangukiya.github.io/post/phase-1-mid/</guid>
-      <description>
-
-&lt;p&gt;The coding phase started with the first week of June. Since then:&lt;/p&gt;
-
-&lt;h1 id=&#34;ported-6-plugins-created-1-new-plugin&#34;&gt;Ported 6 plugins, created 1 new plugin&lt;/h1&gt;
-
-&lt;p&gt;The 7 plugins ported are:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;explain - It returns an explanatory message for a given term.&lt;/li&gt;
-&lt;li&gt;ghetto&lt;/li&gt;
-&lt;li&gt;lmgtfy - returns a lmgtfy link with a given search string.&lt;/li&gt;
-&lt;li&gt;nevermind - returns a &amp;lsquo;I&amp;rsquo;m sorry&amp;rsquo; message.&lt;/li&gt;
-&lt;li&gt;ship-it - returns motivational squirrel images.&lt;/li&gt;
-&lt;li&gt;the-rules - returns bot rules&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;One new plugin that was created is:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;searchdocs - retuns a link to relevant search page.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&#34;some-things-about-testing-in-errbot&#34;&gt;Some things about testing in errbot&lt;/h2&gt;
-
-&lt;p&gt;All of these 7 plugins were pretty simple to implement. Also, there is a policy
-of 100% test coverage in the corobo repository. So, all the plugins are tested
-as well. Testing is actually an interesting part. Actually the testing statement
-is pretty simple &lt;code&gt;self.assertCommand(&#39;!message that is a command&#39;, &#39;expected
-output of the command.&#39;)&lt;/code&gt;. But there&amp;rsquo;s a lot going on in here.&lt;/p&gt;
-
-&lt;p&gt;First of all, here the &lt;code&gt;self&lt;/code&gt; is actually the instance of a stub of errbot.
-A stub is a minimal working substitution of an object, usually created and used
-in testing.&lt;/p&gt;
-
-&lt;p&gt;Fortunately, the stub is available from errbot itself. There is a pytest fixture
-that can be used to get the stub in your testing function, or you can yourself
-instantiate the &lt;code&gt;TestBot&lt;/code&gt; class appropriately. If you use the fixture, then that
-part is handled by the fixture itself implicitly :D.&lt;/p&gt;
-
-&lt;p&gt;Rough flow is:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Instantiate the bot.&lt;/li&gt;
-&lt;li&gt;Bot collects the plugins.&lt;/li&gt;
-&lt;li&gt;Bot instantiates the plugins.&lt;/li&gt;
-&lt;li&gt;The plugins are activated. (You can override &lt;code&gt;activate&lt;/code&gt; method to perform
-do something during &lt;code&gt;activation&lt;/code&gt;).&lt;/li&gt;
-&lt;li&gt;After the plugin is activated, bot registers the commands and calls the appropriate command based on whether it is a normal cmd, or a cmd that has to be triggered if the msg matches the given regex viz. &lt;code&gt;re_botcmd&lt;/code&gt;, or a callback cmd that is called on every single message.&lt;/li&gt;
-&lt;li&gt;Well, after the function call it is our plugin taking over and doing the processing and appropriately respond with [a] message/messages.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&#34;one-of-the-biggest-pitfall&#34;&gt;One of the biggest pitfall&lt;/h3&gt;
-
-&lt;p&gt;I had to do some intensive mocking in the &lt;code&gt;LabHub&lt;/code&gt; plugin(PR can be found here &lt;a href=&#34;https://github.com/coala/corobo/pull/71&#34;&gt;https://github.com/coala/corobo/pull/71&lt;/a&gt; ), it is already +300 change and there&amp;rsquo;s
-still much stuff to add all the functionality.&lt;/p&gt;
-
-&lt;p&gt;This plugin is mainly about managing/modifying github and gitlab repositories.
-Like inviting people to the org, creating issues, assigning issues, unassigning
-issues, etc. Since, all of these primarily makes REST API(http requests) calls,
-most of the plugin is tested using mocking the features, essentially monkey
-patching the functions that make the API call and set the return value to
-something sane.&lt;/p&gt;
-
-&lt;p&gt;Usually mocking is about playing with python namespaces and assignign them
-appropriately.&lt;/p&gt;
-
-&lt;p&gt;So the problem that arised was:&lt;/p&gt;
-
-&lt;h1 id=&#34;1&#34;&gt;#1.&lt;/h1&gt;
-
-&lt;p&gt;errbot uses &lt;a href=&#34;https://github.com/tibonihoo/yapsy/&#34;&gt;yapsy&lt;/a&gt; for plugin management and loading. So, now, since the loading is done by some third party library it is not possible to access the namespace of the plugin, hence, it cannot be monkey patched. So, to get around this, it took me some time to find solution to this problem. I got away with a dirty workaround on this one. When one instantiates the stub viz. &lt;code&gt;TestBot&lt;/code&gt; class mentioned earlier, it has the yapsy plugin manager as one of the attributes and it could be used to instantiate the plugin directly from the code, manually.
-    ```py
-    from errbot.backends.test import TestBot
-    import plugin.ThePluginClass&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# the stub
-testbot = TestBot()
-testbot.start()
-
-# load and instanciate the plugin
-plug = testbot.bot.plugin_manager.instanciateElement(plugin.ThePluginClass)
-# activate the plugin
-plug.activate()
-
-# patch the plugin.ThePluginClass namespace for mocking
-```
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;2&#34;&gt;#2.&lt;/h1&gt;
-
-&lt;p&gt;So after I found this workaround I used it. It worked for most of the functions properly, other then the callback function. Since the callback function is registered by errbot and our plugin was manually instantiated and activated, it isn&amp;rsquo;t registered to errbot and hence doesn&amp;rsquo;t call the callback function.&lt;/p&gt;
-
-&lt;h1 id=&#34;igitt&#34;&gt;IGitt&lt;/h1&gt;
-
-&lt;p&gt;In last few days I started contributing to &lt;a href=&#34;https://gitlab.com/gitmate/open-source/IGitt&#34;&gt;IGitt&lt;/a&gt;. I wanted to use it in the &lt;code&gt;LabHub&lt;/code&gt; plugin. Since I had both GitHub and GitLab utilities to manage, IGitt was the perfect choice. It provides with a unified interface for various Git-hosting services, it is awesome, isn&amp;rsquo;t it?&lt;/p&gt;
-
-&lt;p&gt;I implemented some small things that I needed for my plugins, and also wrote
-tests for the GitHub implementation. Testing in IGitt was previously done
-through doctests and making real API calls. So, we came up with idea that we
-should record API requests and then reuse it, instead of making API calls on
-each build. Thanks to the open-source community, there are already
-things/libraries that do that. We used vcrpy for that. What vcr does is records
-the http requests, with responses, headers and almost all the data in a file
-which is called cassette. Then, it plays the cassettes, i.e. returns the
-responses from the files to the requests made in the code. Hence, it is a &lt;em&gt;vcr&lt;/em&gt;
-replaying and recording http &lt;em&gt;cassettes&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;The review process was pretty quick, thanks to @fneu, @sils, @nkprince007,
-@jayvdb which are almost all the contributors of IGitt ATM. Since the review process was quick
-I can quickly integrate the same in my corobo plugin. It is awesome!&lt;/p&gt;
-
-&lt;p&gt;Helpful Links:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Monkey_patch&#34;&gt;https://en.wikipedia.org/wiki/Monkey_patch&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Mock_object&#34;&gt;https://en.wikipedia.org/wiki/Mock_object&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Test-driven_development&#34;&gt;https://en.wikipedia.org/wiki/Test-driven_development&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-</description>
+      <description>The coding phase started with the first week of June. Since then:
+Ported 6 plugins, created 1 new plugin The 7 plugins ported are:
+ explain - It returns an explanatory message for a given term. ghetto lmgtfy - returns a lmgtfy link with a given search string. nevermind - returns a &amp;lsquo;I&amp;rsquo;m sorry&amp;rsquo; message. ship-it - returns motivational squirrel images. the-rules - returns bot rules  One new plugin that was created is:</description>
     </item>
     
     <item>
@@ -221,57 +40,10 @@ I can quickly integrate the same in my corobo plugin. It is awesome!&lt;/p&gt;
       <pubDate>Tue, 30 May 2017 11:56:02 +0530</pubDate>
       
       <guid>https://meetmangukiya.github.io/post/gsoc-final-week-community-bonding/</guid>
-      <description>
-
-&lt;p&gt;So, the community bonding period has finally come to an end and the coding
-phases will start, more fun follows now!&lt;/p&gt;
-
-&lt;p&gt;I already started a bit of coding, I ported some of the plugins.&lt;/p&gt;
-
-&lt;p&gt;Things done in this week:&lt;/p&gt;
-
-&lt;h2 id=&#34;1-added-the-dockerfile&#34;&gt;1. Added the Dockerfile.&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/yukiisbored&#34;&gt;@yukiisbored&lt;/a&gt; created the dockerfile for
-   corobo. He is our devops guy at coala, he does the awesome work of
-   deploying coala website, webservices, blog, gitmate etc. He is awesome!&lt;/p&gt;
-
-&lt;h2 id=&#34;2-the-test-suite-for-the-repo-has-been-set&#34;&gt;2. The test suite for the repo has been set.&lt;/h2&gt;
-
-&lt;p&gt;Tests are written in the &lt;code&gt;tests/&lt;/code&gt; directory. Errbot comes with a pytest
-   fixture &lt;code&gt;testbot&lt;/code&gt; that can be used in testing. The fixture is working
-   pretty well.&lt;/p&gt;
-
-&lt;h2 id=&#34;3-start-contributing&#34;&gt;3. Start contributing&lt;/h2&gt;
-
-&lt;p&gt;Since the repository structure is already laid and the test suite has already
-   been made, outside contributions on various plugins are highly encouraged,
-   for a quick guide headout to our &lt;a href=&#34;https://github.com/coala/corobo/wiki&#34;&gt;wiki&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;4-upstream&#34;&gt;4. Upstream&lt;/h2&gt;
-
-&lt;p&gt;I did some documentation fixes and fixed one wrong assertion upstream in the
-   errbot repo. The gitter channel is quite active, it is helpful to have
-   support upstream :D&lt;/p&gt;
-
-&lt;h2 id=&#34;5-regarding-topic-modeling&#34;&gt;5. Regarding topic modeling:&lt;/h2&gt;
-
-&lt;p&gt;After recognizing the topic for the question, the next thing is to get
-   the answer from the document. This part is what I call &amp;ldquo;Passage
-   retrieval&amp;rdquo;. This was a bit difficult one. There are many possible alternatives.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;We can search the documentation with the topic obtained from the question using a search engine.&lt;/li&gt;
-&lt;li&gt;Use tfidf on the documentation with topic and use the one with the highest score as the appropriate doc.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&#34;6-next-step&#34;&gt;6. Next step&lt;/h2&gt;
-
-&lt;p&gt;After retrieving the documentation, other thing would be linking to the
-   documentation and ideally summarizing the same. For summarizing we would be
-   using the summarizer available in the gensim already.(Most probably,
-   subjected to change.)&lt;/p&gt;
-</description>
+      <description>So, the community bonding period has finally come to an end and the coding phases will start, more fun follows now!
+I already started a bit of coding, I ported some of the plugins.
+Things done in this week:
+1. Added the Dockerfile. @yukiisbored created the dockerfile for corobo. He is our devops guy at coala, he does the awesome work of deploying coala website, webservices, blog, gitmate etc. He is awesome!</description>
     </item>
     
     <item>
@@ -280,59 +52,8 @@ phases will start, more fun follows now!&lt;/p&gt;
       <pubDate>Fri, 19 May 2017 21:09:27 +0530</pubDate>
       
       <guid>https://meetmangukiya.github.io/post/gsoc-week-2/</guid>
-      <description>
-
-&lt;h1 id=&#34;status-update&#34;&gt;Status Update&lt;/h1&gt;
-
-&lt;h2 id=&#34;create-milestones&#34;&gt;Create milestones&lt;/h2&gt;
-
-&lt;p&gt;Started creating milestones for bonding phase and coding phase 1, 2, and 3 and
-populating those milestones with issues.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;a href=&#34;https://gitlab.com/coala/GSoC-2017/milestones/2&#34;&gt;Bonding Milestone&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://gitlab.com/coala/GSoC-2017/milestones/23&#34;&gt;Coding Phase 1 Milestone&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://gitlab.com/coala/GSoC-2017/milestones/24&#34;&gt;Coding Phase 2 Milestone&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://gitlab.com/coala/GSoC-2017/milestones/25&#34;&gt;Coding Phase 3 Milestone&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&#34;search-engine-frameworks-vs-topic-modeling-frameworks&#34;&gt;Search Engine Frameworks VS. Topic Modeling Frameworks&lt;/h2&gt;
-
-&lt;p&gt;Started discussing about the auto-responding feature of corobo. We started by
-weighing &lt;strong&gt;search engine frameworks&lt;/strong&gt; vs. &lt;strong&gt;topic modeling frameworks&lt;/strong&gt;. It was
-decided to use topic modeling frameworks instad of any other search engine
-frameworks like Solr, Lucene, ElasticSearch, etc.&lt;/p&gt;
-
-&lt;p&gt;Related issue: &lt;a href=&#34;https://gitlab.com/coala/GSoC-2017/issues/3&#34;&gt;https://gitlab.com/coala/GSoC-2017/issues/3&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;build-prototype&#34;&gt;Build Prototype&lt;/h2&gt;
-
-&lt;p&gt;Basic steps to retrieve the topic/key of the question:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Pre-process the input text.&lt;/li&gt;
-&lt;li&gt;Train over the input documentation.&lt;/li&gt;
-&lt;li&gt;Use the trained model to retrieve the topic of the question.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;In prototypes, we try to change the training methods, pre-processing methods to
-get as efficient results as possible.&lt;/p&gt;
-
-&lt;p&gt;Prototypes can be found here:
-&lt;a href=&#34;https://github.com/meetmangukiya/topic-modelling-prototype&#34;&gt;https://github.com/meetmangukiya/topic-modelling-prototype&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;basic-repo-structure-and-setup-ci&#34;&gt;Basic repo structure and setup CI&lt;/h2&gt;
-
-&lt;p&gt;The repository for the new cobot is setup at github:
-&lt;a href=&#34;https://github.com/coala/corobo&#34;&gt;https://github.com/coala/corobo&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Travis CI is setup for the repository. coafile is added to the repository.&lt;/p&gt;
-
-&lt;h2 id=&#34;start-writing-a-cep&#34;&gt;Start writing a cEP&lt;/h2&gt;
-
-&lt;p&gt;I started writing a cEP for my GSoC project:
-&lt;a href=&#34;https://github.com/coala/cEPs/pull/77&#34;&gt;https://github.com/coala/cEPs/pull/77&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>Status Update Create milestones Started creating milestones for bonding phase and coding phase 1, 2, and 3 and populating those milestones with issues.
+ Bonding Milestone Coding Phase 1 Milestone Coding Phase 2 Milestone Coding Phase 3 Milestone  Search Engine Frameworks VS. Topic Modeling Frameworks Started discussing about the auto-responding feature of corobo. We started by weighing search engine frameworks vs. topic modeling frameworks. It was decided to use topic modeling frameworks instad of any other search engine frameworks like Solr, Lucene, ElasticSearch, etc.</description>
     </item>
     
     <item>
@@ -341,48 +62,8 @@ get as efficient results as possible.&lt;/p&gt;
       <pubDate>Sun, 07 May 2017 07:49:38 +0530</pubDate>
       
       <guid>https://meetmangukiya.github.io/post/accepted-for-gsoc/</guid>
-      <description>
-
-&lt;h1 id=&#34;accepted-for-gsoc&#34;&gt;Accepted for GSoC&lt;/h1&gt;
-
-&lt;p&gt;Last month I created a post about me applying for GSoC under coala organization.
-And the results were declared on 4th May, and guess what? I am accepted as a
-GSoC student!! How awesome is that?! :D&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://meetmangukiya.github.io/img/gsoc_email.png&#34; alt=&#34;GSoC Acceptance Email&#34; /&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;so-what-lies-further&#34;&gt;So what lies further&lt;/h1&gt;
-
-&lt;p&gt;Now, that the results are out, the next phase is the Community Bonding period.
-During this period we are supposed to research more about our project, create
-milestones and think about the implementation details; do code reviews, present
-our project on coala mailing lists, and work out the schedule to follow in the 3
-months of coding period; contact our mentors and discuss the project further.&lt;/p&gt;
-
-&lt;p&gt;It is not the usual &amp;ldquo;start implementing right away&amp;rdquo; kinda thing where you just
-start coding without thinking about future pitfalls and implementations. So,
-this is something new and interesting, because now we program in a more
-structured, organized and well planned way; we will already know how we have
-to proceed. And also be certain that the achieved product will be a better,
-maintainable piece of software and not just a &amp;ldquo;just works&amp;rdquo; ugly kinda software.&lt;/p&gt;
-
-&lt;p&gt;I&amp;rsquo;ll be blogging weekly from now on summarizing the work done in that week and
-work that I might be doing in the subsequent weeks, its gonna be awesome!&lt;/p&gt;
-
-&lt;p&gt;My project abstract can be found
-&lt;a href=&#34;https://summerofcode.withgoogle.com/projects/#4913450777051136&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;I already had a video conference with my mentor
-&lt;a href=&#34;https://github.com/Udayan12167&#34;&gt;Udayan&lt;/a&gt; regarding the projects, where we set
-things to do in this week. Most important of all being to find a more viable way
-to search and answer user queries from documentation by either using search
-engine frameworks or Topic Modelling frameworks. So in this week I&amp;rsquo;ll be
-checking out various frameworks and see the pros and cons of each and
-accordingly decide one framework that I&amp;rsquo;ll use in the answering-user-query part
-of my project.&lt;/p&gt;
-
-&lt;p&gt;That&amp;rsquo;s it for now, cy&amp;rsquo;ll next week!&lt;/p&gt;
-</description>
+      <description>Accepted for GSoC Last month I created a post about me applying for GSoC under coala organization. And the results were declared on 4th May, and guess what? I am accepted as a GSoC student!! How awesome is that?! :D
+So what lies further Now, that the results are out, the next phase is the Community Bonding period. During this period we are supposed to research more about our project, create milestones and think about the implementation details; do code reviews, present our project on coala mailing lists, and work out the schedule to follow in the 3 months of coding period; contact our mentors and discuss the project further.</description>
     </item>
     
     <item>
@@ -391,100 +72,8 @@ of my project.&lt;/p&gt;
       <pubDate>Sun, 19 Mar 2017 18:15:48 +0530</pubDate>
       
       <guid>https://meetmangukiya.github.io/post/gsoc-coala-debugger/</guid>
-      <description>
-
-&lt;h1 id=&#34;i-am-applying-for-google-summer-of-code&#34;&gt;I am applying for Google Summer of Code&lt;/h1&gt;
-
-&lt;h2 id=&#34;what-is-google-summer-of-code-a-k-a-gsoc&#34;&gt;What is Google Summer of Code a.k.a. GSoC?&lt;/h2&gt;
-
-&lt;p&gt;Google Summer of Code is a platform to encourage students to work for Open
-Source. It is a 3 month internship-like program whereby student works with Open
-Source Organizations under the guidance of a mentor
-(who is usually a member of the organization) to write/modify programs/softwares
-for the organization.&lt;/p&gt;
-
-&lt;h2 id=&#34;what-is-coala&#34;&gt;What is coala?&lt;/h2&gt;
-
-&lt;p&gt;coala is a program that provides a unified interface to statically analyse
-any project through one application. It wraps many linters across different
-languages and prints results and messages from those linters, and also apply
-and suggest patches for the given messages.&lt;/p&gt;
-
-&lt;p&gt;coala runs all the analyis routines through the bears. Bears are like plugins
-and coala is like a framework. Bears are configured through a file &lt;code&gt;.coafile&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;coala runs all the analysis/bears by just running &lt;code&gt;coala&lt;/code&gt;, isn&amp;rsquo;t it just
-awesome!&lt;/p&gt;
-
-&lt;p&gt;I am applying for a GSoC project under &lt;a href=&#34;https://coala.io&#34;&gt;coala&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;what-is-my-project-about&#34;&gt;What is my project about?&lt;/h2&gt;
-
-&lt;h3 id=&#34;debug-and-profile-bears&#34;&gt;Debug and profile bears.&lt;/h3&gt;
-
-&lt;p&gt;My project is about creating a debugger for coala, to debug the coala bears and
-create an interface to profile the bears.&lt;/p&gt;
-
-&lt;h3 id=&#34;debugger&#34;&gt;Debugger&lt;/h3&gt;
-
-&lt;h4 id=&#34;why-not-use-pdb&#34;&gt;Why not use pdb?&lt;/h4&gt;
-
-&lt;p&gt;You may ask that one may just use &lt;code&gt;pdb&lt;/code&gt; to debug the bears.&lt;/p&gt;
-
-&lt;p&gt;Writing bears in coala is very easy, thanks to its user friendly and abstract
-API. But the bear developers, usually find difficulty in debugging the bears.
-In bear debugging, the user usually do not need to debug the bear that
-&lt;em&gt;low levelly&lt;/em&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;debug-modes&#34;&gt;Debug modes&lt;/h4&gt;
-
-&lt;p&gt;The debugger that I&amp;rsquo;ll be creating has three modes:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Debug Mode:
-In Debug mode, the debugging is started as it is as in pdb.&lt;/li&gt;
-&lt;li&gt;Superficial Mode:
-In Superficial mode, the arguments and return values of debugged function
-call is captured. This would remove unnecessary stepping.&lt;/li&gt;
-&lt;li&gt;Report Mode:
-This is probably the most useful mode. If this mode is used, then the bear
-is ran and the arguments and the return values of all the subsequent function
-calls are captured and printed in a beautiful tabular form.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h4 id=&#34;debugging-environment&#34;&gt;Debugging environment&lt;/h4&gt;
-
-&lt;p&gt;The job of importing the bear, instantiate them, and run the bear with requried
-setting is a trivial job that can be automated inside coala, so the devs don&amp;rsquo;t
-need to set it up on their own ;)&lt;/p&gt;
-
-&lt;p&gt;The bear being debugged will be imported. If no settings are provided in the CLI
-then settings in the coafile will be used while running the bear.&lt;/p&gt;
-
-&lt;h4 id=&#34;debug&#34;&gt;Debug!&lt;/h4&gt;
-
-&lt;p&gt;After the importing and collecting of settings is done. Its time to start
-debugging. The run method of the bear is called in &lt;em&gt;Debug Mode&lt;/em&gt;. After that at
-every line, user has an option to do whatever options pdb already has plus the
-superficial mode. Superficial mode will perform the function call and print the
-arguments and the return value at that line.&lt;/p&gt;
-
-&lt;p&gt;Using the report mode. If the report mode flag is set to true, then the run
-method of bear is called in superficial mode which will directly print the
-&lt;strong&gt;Results&lt;/strong&gt; and return values and arguments of all the function calls in the run
- method.&lt;/p&gt;
-
-&lt;h3 id=&#34;profiler&#34;&gt;Profiler&lt;/h3&gt;
-
-&lt;p&gt;After the bear is written and debugged, the author may want to check if he can
-do any performance improvements in the bear. This is where profiling comes into
-the picture.&lt;/p&gt;
-
-&lt;p&gt;User can run bear with a &lt;code&gt;--profile&lt;/code&gt; option and a nice profile report will be
-created for the given run.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;More specific info in the &lt;a href=&#34;https://meetmangukiya.github.io/GSoC-DebugandProfileBears-coala.pdf&#34;&gt;proposal&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
-</description>
+      <description>I am applying for Google Summer of Code What is Google Summer of Code a.k.a. GSoC? Google Summer of Code is a platform to encourage students to work for Open Source. It is a 3 month internship-like program whereby student works with Open Source Organizations under the guidance of a mentor (who is usually a member of the organization) to write/modify programs/softwares for the organization.
+What is coala? coala is a program that provides a unified interface to statically analyse any project through one application.</description>
     </item>
     
   </channel>
