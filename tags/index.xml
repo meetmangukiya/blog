@@ -2,38 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Meet Mangukiya | Blog</title>
-    <link>https://example.org/tags/</link>
+    <link>https://meetmangukiya.github.io/tags/</link>
     <description>Recent content in Tags on Meet Mangukiya | Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Released under the MIT license.</copyright>
     <lastBuildDate>Sat, 24 Jun 2017 23:53:01 +0530</lastBuildDate>
-    <atom:link href="https://example.org/tags/" rel="self" type="application/rss+xml" />
+    <atom:link href="https://meetmangukiya.github.io/tags/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Coala</title>
-      <link>https://example.org/tags/coala/</link>
+      <link>https://meetmangukiya.github.io/tags/coala/</link>
       <pubDate>Sat, 24 Jun 2017 23:53:01 +0530</pubDate>
       
-      <guid>https://example.org/tags/coala/</guid>
+      <guid>https://meetmangukiya.github.io/tags/coala/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Hugo</title>
-      <link>https://example.org/tags/hugo/</link>
+      <link>https://meetmangukiya.github.io/tags/hugo/</link>
       <pubDate>Sat, 18 Mar 2017 14:47:27 +0530</pubDate>
       
-      <guid>https://example.org/tags/hugo/</guid>
+      <guid>https://meetmangukiya.github.io/tags/hugo/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Web</title>
-      <link>https://example.org/tags/web/</link>
+      <link>https://meetmangukiya.github.io/tags/web/</link>
       <pubDate>Sat, 18 Mar 2017 14:47:27 +0530</pubDate>
       
-      <guid>https://example.org/tags/web/</guid>
+      <guid>https://meetmangukiya.github.io/tags/web/</guid>
       <description></description>
     </item>
     

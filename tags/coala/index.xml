@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Coala on Meet Mangukiya | Blog</title>
-    <link>https://example.org/tags/coala/</link>
+    <link>https://meetmangukiya.github.io/tags/coala/</link>
     <description>Recent content in Coala on Meet Mangukiya | Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Released under the MIT license.</copyright>
     <lastBuildDate>Sat, 24 Jun 2017 23:53:01 +0530</lastBuildDate>
-    <atom:link href="https://example.org/tags/coala/" rel="self" type="application/rss+xml" />
+    <atom:link href="https://meetmangukiya.github.io/tags/coala/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>GSoC Phase-1 End</title>
-      <link>https://example.org/post/phase-1-end/</link>
+      <link>https://meetmangukiya.github.io/post/phase-1-end/</link>
       <pubDate>Sat, 24 Jun 2017 23:53:01 +0530</pubDate>
       
-      <guid>https://example.org/post/phase-1-end/</guid>
+      <guid>https://meetmangukiya.github.io/post/phase-1-end/</guid>
       <description>
 
 &lt;p&gt;GSoC Phase-1 End
@@ -89,10 +89,10 @@ It wasn&amp;rsquo;t working earlier, then we reached out to the original author 
     
     <item>
       <title>GSoC Phase-1 Mid</title>
-      <link>https://example.org/post/phase-1-mid/</link>
+      <link>https://meetmangukiya.github.io/post/phase-1-mid/</link>
       <pubDate>Thu, 15 Jun 2017 00:22:27 +0530</pubDate>
       
-      <guid>https://example.org/post/phase-1-mid/</guid>
+      <guid>https://meetmangukiya.github.io/post/phase-1-mid/</guid>
       <description>
 
 &lt;p&gt;The coding phase started with the first week of June. Since then:&lt;/p&gt;
@@ -217,10 +217,10 @@ I can quickly integrate the same in my corobo plugin. It is awesome!&lt;/p&gt;
     
     <item>
       <title>Final week of community bonding at coala</title>
-      <link>https://example.org/post/gsoc-final-week-community-bonding/</link>
+      <link>https://meetmangukiya.github.io/post/gsoc-final-week-community-bonding/</link>
       <pubDate>Tue, 30 May 2017 11:56:02 +0530</pubDate>
       
-      <guid>https://example.org/post/gsoc-final-week-community-bonding/</guid>
+      <guid>https://meetmangukiya.github.io/post/gsoc-final-week-community-bonding/</guid>
       <description>
 
 &lt;p&gt;So, the community bonding period has finally come to an end and the coding
@@ -276,10 +276,10 @@ phases will start, more fun follows now!&lt;/p&gt;
     
     <item>
       <title>GSoC community bonding week 2</title>
-      <link>https://example.org/post/gsoc-week-2/</link>
+      <link>https://meetmangukiya.github.io/post/gsoc-week-2/</link>
       <pubDate>Fri, 19 May 2017 21:09:27 +0530</pubDate>
       
-      <guid>https://example.org/post/gsoc-week-2/</guid>
+      <guid>https://meetmangukiya.github.io/post/gsoc-week-2/</guid>
       <description>
 
 &lt;h1 id=&#34;status-update&#34;&gt;Status Update&lt;/h1&gt;
@@ -337,10 +337,10 @@ get as efficient results as possible.&lt;/p&gt;
     
     <item>
       <title>Accepted for GSoC 2017 at coala</title>
-      <link>https://example.org/post/accepted-for-gsoc/</link>
+      <link>https://meetmangukiya.github.io/post/accepted-for-gsoc/</link>
       <pubDate>Sun, 07 May 2017 07:49:38 +0530</pubDate>
       
-      <guid>https://example.org/post/accepted-for-gsoc/</guid>
+      <guid>https://meetmangukiya.github.io/post/accepted-for-gsoc/</guid>
       <description>
 
 &lt;h1 id=&#34;accepted-for-gsoc&#34;&gt;Accepted for GSoC&lt;/h1&gt;
@@ -349,7 +349,7 @@ get as efficient results as possible.&lt;/p&gt;
 And the results were declared on 4th May, and guess what? I am accepted as a
 GSoC student!! How awesome is that?! :D&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://example.org/img/gsoc_email.png&#34; alt=&#34;GSoC Acceptance Email&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://meetmangukiya.github.io/img/gsoc_email.png&#34; alt=&#34;GSoC Acceptance Email&#34; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&#34;so-what-lies-further&#34;&gt;So what lies further&lt;/h1&gt;
 
@@ -387,10 +387,10 @@ of my project.&lt;/p&gt;
     
     <item>
       <title>GSoC Proposal - Debugger for coala bears</title>
-      <link>https://example.org/post/gsoc-coala-debugger/</link>
+      <link>https://meetmangukiya.github.io/post/gsoc-coala-debugger/</link>
       <pubDate>Sun, 19 Mar 2017 18:15:48 +0530</pubDate>
       
-      <guid>https://example.org/post/gsoc-coala-debugger/</guid>
+      <guid>https://meetmangukiya.github.io/post/gsoc-coala-debugger/</guid>
       <description>
 
 &lt;h1 id=&#34;i-am-applying-for-google-summer-of-code&#34;&gt;I am applying for Google Summer of Code&lt;/h1&gt;

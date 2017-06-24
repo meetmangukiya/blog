@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Meet Mangukiya | Blog</title>
-    <link>https://example.org/categories/</link>
+    <link>https://meetmangukiya.github.io/categories/</link>
     <description>Recent content in Categories on Meet Mangukiya | Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Released under the MIT license.</copyright>
-    <atom:link href="https://example.org/categories/" rel="self" type="application/rss+xml" />
+    <atom:link href="https://meetmangukiya.github.io/categories/" rel="self" type="application/rss+xml" />
     
   </channel>
 </rss>
