@@ -10,7 +10,7 @@ done
 cd ..
 
 echo "[building]"
-hugo -t hugo-type-theme
+hugo -t hugo-steam-theme
 echo
 echo "[Pushing to master]"
 cd public/
