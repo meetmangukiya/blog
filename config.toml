@@ -1,57 +1,45 @@
-baseURL = "https://meetmangukiya.github.io/"
+baseurl = "https://example.org/"
 languageCode = "en-us"
-title = "Meet Mangukiya | My Blog"
-theme = "hugo-type-theme"
-# Enable comments by entering your Disqus shortname
-# disqusShortname = "spf13"
-# Add your tracking code to enable Google Analytics
+title = "Meet Mangukiya | meetmangukiya"
+theme = "hugo-steam-theme"
+disqusShortname = ""
+# Enable Google Analytics be inserting your tracking code
 googleAnalytics = "UA-86162389-3"
-# Posts per page
-paginate = 5
-# Comment the themesDir option if you use this theme in production
-# themesDir = "../.."
-
+# Number of posts per page
+paginate = 10
 
 [params]
-	author = "Meet Mangukiya"
-	description = "My footprint on the WE"
-	# The keywords will be added as a meta tag. Delimit them with a comma.
-	keywords = ""
-	# Either show custom avatar on the top
-	# left by adding the filename in below
-	avatar = "img/avatar.jpg"
-	# or use Gravatar by adding your email address to generate a unique avatar
-	# gravatar = "your@email.com"
+	title = "Meet Mangukiya | Blog"
+	subtitle = "My footprint on the web."
+	copyright = "Released under the MIT license."
 
-	# headerText = "My footprint on the web."
-	# To add a header background to the main site, save your image under static/img/.
-	# If now image path is provided, a orange background will be shown instead.
-	headerImage = ""
-	copyright = "Released under the MIT license<br>Powered by [Hugo](//gohugo.io/) with the [Type Theme](//github.com/digitalcraftsman/hugo-type-theme)"
+	# You can choose between green, orange, red and blue.
+	themecolor = "red"
 
+	# Link custom assets relative to /static
+	favicon   = "favicon.ico"
+	customCSS = []
+	customJS  = []
 
-	[params.social]
-		# Insert your accout name and the icon will be shown in the right menu
-		rss = true
-		homepage = true
-		email = "meet123mangukiya@gmail.com"
-		behance = ""
-		bitbucket  =""
-		dribbble = ""
-		facebook = ""
-		flickr = ""
-		github = "meetmangukiya/"
-		googleplus = ""
-		instagram = ""
-		linkedin = ""
-		pinterest = ""
-		reddit = ""
-		soundcloud = ""
-		stackexchange = ""
-		steam = ""
-		tumblr = ""
-		twitter = "meetmangukiya98"
-		wordpress = ""
-		youtube = ""
-		gitlab = "meetmangukiya"
-		trello = ""
+	# To provide some metadata for search engines and the about section in the footer
+	# feel free to add a few information about you and your website.
+	name = "Meet Mangukiya"
+	bio = "programmer - student"
+	description = ""
+
+	# Link your social networks (optional)
+	location = "Mumbai, Maharashtra, India"
+	twitter = "meetmangukiya98"
+	linkedin = ""
+	googleplus = ""
+	facebook = ""
+	instagram = ""
+	github = "meetmangukiya"
+	gitlab = "meetmangukiya"
+	bitbucket = ""
+
+	# Customize or translate the strings
+	keepReadingStr = "Keep reading"
+	backtotopStr = "Back to top"
+	shareStr = "Share"
+	pageNotFoundTitle = "404 - Page not found"

@@ -5,6 +5,7 @@ draft = false
 featureimage = ""
 menu = ""
 tags = ["coala"]
+description = "It has been two weeks into coding phase already, we've got lot to catch up on!"
 title = "GSoC Phase-1 Mid"
 
 +++

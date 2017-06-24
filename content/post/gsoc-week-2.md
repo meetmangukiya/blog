@@ -6,7 +6,7 @@ featureimage = ""
 menu = ""
 tags = ["coala"]
 title = "GSoC community bonding week 2"
-
+description = "It is week 2 of community bonding phase of GSoC, here's what was done."
 +++
 
 # Status Update
@@ -14,7 +14,7 @@ title = "GSoC community bonding week 2"
 ## Create milestones
 
 Started creating milestones for bonding phase and coding phase 1, 2, and 3 and
-populating those milestones with issues. 
+populating those milestones with issues.
 
 1. [Bonding Milestone](https://gitlab.com/coala/GSoC-2017/milestones/2)
 2. [Coding Phase 1 Milestone](https://gitlab.com/coala/GSoC-2017/milestones/23)

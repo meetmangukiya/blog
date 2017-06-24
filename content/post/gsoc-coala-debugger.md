@@ -3,6 +3,7 @@ date = "2017-03-19T18:15:48+05:30"
 title = "GSoC Proposal - Debugger for coala bears"
 draft = false
 tags = ['coala']
+description = "Creating a debugger for coala-bears - proposal"
 +++
 
 # I am applying for Google Summer of Code

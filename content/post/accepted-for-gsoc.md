@@ -5,6 +5,7 @@ draft = false
 featureimage = ""
 menu = ""
 tags = ["coala"]
+description = "Last month I created a post about applying for GSoC, this post is about the result :D "
 title = "Accepted for GSoC 2017 at coala"
 
 +++
@@ -13,7 +14,7 @@ title = "Accepted for GSoC 2017 at coala"
 
 Last month I created a post about me applying for GSoC under coala organization.
 And the results were declared on 4th May, and guess what? I am accepted as a
-GSoC student!! How awesome is that?! :D 
+GSoC student!! How awesome is that?! :D
 
 ![GSoC Acceptance Email](/img/gsoc_email.png)
 
