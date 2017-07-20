@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://meetmangukiya.github.io/post/corobo-to-answer-your-questions/</loc>
+    <lastmod>2017-07-20T07:49:38+05:30</lastmod>
+  </url>
   
   <url>
     <loc>https://meetmangukiya.github.io/post/phase-1-end/</loc>
@@ -43,7 +49,7 @@
   
   <url>
     <loc>https://meetmangukiya.github.io/tags/coala/</loc>
-    <lastmod>2017-06-24T23:53:01+05:30</lastmod>
+    <lastmod>2017-07-20T07:49:38+05:30</lastmod>
     <priority>0</priority>
   </url>
   
@@ -55,19 +61,19 @@
   
   <url>
     <loc>https://meetmangukiya.github.io/</loc>
-    <lastmod>2017-06-24T23:53:01+05:30</lastmod>
+    <lastmod>2017-07-20T07:49:38+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://meetmangukiya.github.io/post/</loc>
-    <lastmod>2017-06-24T23:53:01+05:30</lastmod>
+    <lastmod>2017-07-20T07:49:38+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://meetmangukiya.github.io/tags/</loc>
-    <lastmod>2017-06-24T23:53:01+05:30</lastmod>
+    <lastmod>2017-07-20T07:49:38+05:30</lastmod>
     <priority>0</priority>
   </url>
   

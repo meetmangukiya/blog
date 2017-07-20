@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-    <title>GSoC Phase-1 End &middot; Meet Mangukiya | Blog</title>
+    <title>corobo - to answer your questions &middot; Meet Mangukiya | Blog</title>
     <meta name="author" content="Meet Mangukiya">
     
     <meta name="generator" content="Hugo 0.25.1" />
@@ -55,10 +55,10 @@
     
 <article class="post">
     <header>
-        <h1 class="post-title">GSoC Phase-1 End</h1>
+        <h1 class="post-title">corobo - to answer your questions</h1>
         <div class="post-meta">
-            <time datetime="24 June 2017">
-                24 June 2017
+            <time datetime="20 July 2017">
+                20 July 2017
             </time>
         </div>
     </header>
@@ -66,72 +66,46 @@
     <section class="post-content">
         
 
-<p>GSoC Phase-1 End
-Hey!
-It is end of June and phase-1 already! Time flies, doesn&rsquo;t it?(except when you are waiting for a review of your PR :P)</p>
+<p>A. part of my GSoC phase 2 was to get corobo to answer questions from users automatically by searching the ccorobo to answer your questions
+A part of my GSoC phase 2 was to get corobo to answer questions from users automatically by searching the coala documentation and returning a link to the relevant section.
+So, here today we discuss about the implementation specifics of the same. Lets get started:</p>
 
-<p>In the last blog post, there were 7 plugins, now there are total 11 plugins. All the old plugins have been ported and functional.</p>
+<h1 id="parsing">Parsing</h1>
 
-<p>New plugins that weren&rsquo;t in the last post are:
-1. WolframAlpha plugin - Used to query wolfram alpha from chat.
-2. Coatils - Awesome stats regarding coala and contributors.
-3. Coala_lowercase_c - To tell the user that coala and cEPs are always written with lowercase c.
-4. LabHub - This the plugin whose Mega PR was still under review during the last post.</p>
+<p>Firstly, we need to parse the documentation. All of coala documentation are reStructuredTexts(rSTs/reSTs). Parsing rst files are done using <code>docutils</code> package.</p>
 
-<p>This is version 1.1 of corobo. Here&rsquo;s the changelog:</p>
+<p>Parsing in our answering system is quite simple. We walk through all the nodes in the documents and process all the <code>Section</code> nodes. Now, there are possibilities for a section to contain another section. So, the node is searched if a child section node exists in which case, this node is ignored, because the child node will be recorded later. So, this way we have all the sections from all the rst files. The id of each section is known as well, which helps in building links dynamically such that it points towards relevant part of the documentation.</p>
 
-<h2 id="changelog-from-cobot-to-corobo">Changelog(from cobot to corobo):</h2>
+<p>The texts are stored in a dict, where the keys are section name and values are text, code, and filename of the rst file.</p>
 
-<ol>
-<li>Framework - Moved to <a href="http://errbot.io">errbot</a> ;) It&rsquo;s all python now!</li>
-<li>Assigning, creating, unassigning, and marking PRs pending and wip are working for gitlab repos as well.</li>
-</ol>
+<h1 id="processing">Processing</h1>
 
-<h2 id="new-stuff">New stuff</h2>
+<h2 id="documentation">Documentation</h2>
 
-<h3 id="stats">Stats!</h3>
+<p>We construct a knowledge graph from the texts that we grabbed earlier by parsing the documentation files.</p>
 
-<p>Various coala related stats are now available through corobo:
-1. Contribution Stats:<br />
-    If you don&rsquo;t know, we maintain coala contributors&rsquo; contributions stats at coala.io. The contribution stats are available through <a href="http://webservices.coala.io/contrib/">http://webservices.coala.io/contrib/</a> endpoint. The same is used to get this stats.
-2. Bear stats:<br />
-   Returns number of bears that are currently available. As of now there are 102 bears!! That is a huge number, isn&rsquo;t it?
-3. Bear stats for given langauge:<br />
-    You can even get number of bears of a particular language using <code>corobo bear stats &lt;lang&gt;</code>.
-4. Lang stats:<br />
-    Returns the number of languages coala supports. As of now coala supports 63 languages!
-5. stats:<br />
-    This returns both the number of bears and number of languages supported.</p>
+<p>How is the graph formed:
+1. Formation of nodes.
+   There is nothing special about node formation. Each token is a node, actually lemmatized node.
+2. Formation of edges.
+   Edges are formed between lemmatized token and lemma of head of the sentence token belongs to.</p>
 
-<h3 id="labhub">LabHub</h3>
+<p>Apart from this, all the nodes have texts that the node is part of.
+Example: <code>git</code> node will have texts from all the sections of coala.io/git</p>
+
+<h2 id="question">Question</h2>
 
 <ol>
-<li>Issue Assignment:<br />
-To assign yourself to given issue. However, this assign is smarter then earlier. It performs checks of eligibility before assigning the issue. Currently there is one check which allows newcomers to only assign themselves to issues that are labeled newcomer or low difficulty.</li>
-<li>Creating new issues:<br />
- You can create issues on coala repositories both across GitLab and GitHub.</li>
-<li>Inviting users:<br />
-This is available to maintainers only. It is used to invite users to different teams namely newcomers, developers, maintainers team.</li>
-<li>Marking PR status:<br />
-We, at coala, mark PRs that are work in progress with label process/wip and those that are awaiting review as process/pending review. This command allows you to label PR status. So, if you&rsquo;ve reviewed a PR and PR needs more work, you mark it wip. If you&rsquo;ve done the required changes and want the PR to be reviewed again, you mark it pending.</li>
-<li>Unassigning:<br />
-Unassigns the given user from the issue.</li>
+<li>Same algorithm that we used earlier to form knowledge graph from documentation is used to create graph of the question.</li>
+<li>After creating the question graph, each edge in the question is iterated over.</li>
+<li>The two nodes in the edge are searched in the documentation graph. If both of them are present, then we walk through all the shortest connecting the two nodes and increment the score of each text document stored in the node by 1.</li>
+<li>Score is scaled down relative to the highest scored node.</li>
+<li>Top 3 results are yielded according to the score.</li>
 </ol>
 
-<h2 id="raml">RAML</h2>
+<p>This is pretty much how the answers are found for a given question.</p>
 
-<p>Since, I was consuming webservices.coala.io, I used RAML to express the API, and generate a client from the RAML file. I used <a href="https://github.com/timofurrer/ramlient">ramlient</a> to generate the client. If you are using RAML to describe your API, you should check ramlient, however it is still in early stages. It doesn&rsquo;t use all the information from the RAML file.
-It wasn&rsquo;t working earlier, then we reached out to the original author who agreed to help with the development :D . He reviewed and merged pretty quickly, and released the same.</p>
-
-<p>I searched for python client generators, but there were pretty less options. There was nsxramlclient, but it was python2 and also it didn&rsquo;t support RAML 1.0</p>
-
-<h2 id="igitt">IGitt</h2>
-
-<p>We talked about this lovely piece of software in my last post, remember? Well, everything was working in the LabHub plugin except that the gitlab repos can&rsquo;t be used :O . The reason being IGitt only supported authentication using OAuth tokens, since that was the primary usecase at GitMate. I wasn&rsquo;t aware of that until then. Then we created a new <code>Token</code> base class in the interface. <code>GitHubToken</code> was implemented for GitHub. <code>GitLabPrivateToken</code>, and <code>GitLabOAuthToken</code> were implemented for GitLab. We completely changed the process of Authentication with that PR. It was a breaking change. If one used the earlier authentication mode, then on update everything will be broken. Fix it if you are using IGitt and read this ;)</p>
-
-<p>corobo was left in the wild yesterday. A bug surfaced after that which have been fixed and a PR is created. And a few bugs in errbot gitter backend as well. Awaiting community review on the new version of cobot - the corobo!</p>
-
-<p>That&rsquo;s it for now, will meet in a couple of weeks now :D</p>
+<p>You can refer to a research paper this idea was taken from, here: <a href="https://pdfs.semanticscholar.org/57dc/e89754ad37b1a631e4ac6f375ce9cae3988e.pdf">https://pdfs.semanticscholar.org/57dc/e89754ad37b1a631e4ac6f375ce9cae3988e.pdf</a></p>
 
     </section>
 
@@ -150,15 +124,15 @@ It wasn&rsquo;t working earlier, then we reached out to the original author who 
     <section class="share">
     <p class="backtotop"><a data-scroll href="#site-head"><i class="fa fa-lg fa-fw fa-angle-double-up"></i></a><a data-scroll class="backtotoptext" href="#site-head"> Back to top</a></p>
     <p class="info prompt">Share</p>
-    <a href="http://twitter.com/share?text=GSoC%20Phase-1%20End&url=https%3a%2f%2fmeetmangukiya.github.io%2fpost%2fphase-1-end%2f" title="Share on Twitter"
+    <a href="http://twitter.com/share?text=corobo%20-%20to%20answer%20your%20questions&url=https%3a%2f%2fmeetmangukiya.github.io%2fpost%2fcorobo-to-answer-your-questions%2f" title="Share on Twitter"
         onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
         <i class="fa fa-2x fa-fw fa-twitter-square"></i> <span class="hidden">Twitter</span>
     </a>
-    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fmeetmangukiya.github.io%2fpost%2fphase-1-end%2f" title="Share on Facebook"
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fmeetmangukiya.github.io%2fpost%2fcorobo-to-answer-your-questions%2f" title="Share on Facebook"
         onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
         <i class="fa fa-2x fa-fw fa-facebook-square" style="margin-left: -8px"></i> <span class="hidden">Facebook</span>
     </a>
-    <a href="https://plus.google.com/share?url=https%3a%2f%2fmeetmangukiya.github.io%2fpost%2fphase-1-end%2f" title="Share on Google+"
+    <a href="https://plus.google.com/share?url=https%3a%2f%2fmeetmangukiya.github.io%2fpost%2fcorobo-to-answer-your-questions%2f" title="Share on Google+"
        onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
         <i class="fa fa-2x fa-fw fa-google-plus-square" style="margin-left: -8px"></i> <span class="hidden">Google+</span>
     </a>
