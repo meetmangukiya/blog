@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Released under the MIT license.</copyright>
-    <lastBuildDate>Thu, 20 Jul 2017 07:49:38 +0530</lastBuildDate>
+    <lastBuildDate>Sun, 23 Jul 2017 07:49:38 +0530</lastBuildDate>
     
 	<atom:link href="https://meetmangukiya.github.io/tags/coala/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>corobo - answering microservice</title>
       <link>https://meetmangukiya.github.io/post/corobo-answering-microservice/</link>
-      <pubDate>Thu, 20 Jul 2017 07:49:38 +0530</pubDate>
+      <pubDate>Sun, 23 Jul 2017 07:49:38 +0530</pubDate>
       
       <guid>https://meetmangukiya.github.io/post/corobo-answering-microservice/</guid>
       <description>In the last blog I tried to explain the answering mechanism in corobo. Now, it&amp;rsquo;s time to deploy it. Deployment is not always as easy as working locally. But there&amp;rsquo;s docker that makes it easier.
