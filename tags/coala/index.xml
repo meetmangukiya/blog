@@ -13,12 +13,24 @@
     
     
     <item>
+      <title>corobo - answering microservice</title>
+      <link>https://meetmangukiya.github.io/post/corobo-answering-microservice/</link>
+      <pubDate>Thu, 20 Jul 2017 07:49:38 +0530</pubDate>
+      
+      <guid>https://meetmangukiya.github.io/post/corobo-answering-microservice/</guid>
+      <description>In the last blog I tried to explain the answering mechanism in corobo. Now, it&amp;rsquo;s time to deploy it. Deployment is not always as easy as working locally. But there&amp;rsquo;s docker that makes it easier.
+Problem: Answering module uses spacy which requires training model to work. That training model is about 1 GB of data. Adding that to corobo Dockerfile didn&amp;rsquo;t quite make sense because that&amp;rsquo;d increase the size of the image by 1 GB.</description>
+    </item>
+    
+    <item>
       <title>corobo - to answer your questions</title>
       <link>https://meetmangukiya.github.io/post/corobo-to-answer-your-questions/</link>
       <pubDate>Thu, 20 Jul 2017 07:49:38 +0530</pubDate>
       
       <guid>https://meetmangukiya.github.io/post/corobo-to-answer-your-questions/</guid>
-      <description>A. part of my GSoC phase 2 was to get corobo to answer questions from users automatically by searching the ccorobo to answer your questions A part of my GSoC phase 2 was to get corobo to answer questions from users automatically by searching the coala documentation and returning a link to the relevant section. So, here today we discuss about the implementation specifics of the same. Lets get started:</description>
+      <description>A part of my GSoC phase 2 was to get corobo to answer questions from users automatically by searching the coala documentation and returning a link to the relevant section. So, here today we discuss about the implementation specifics of the same. Lets get started:
+Parsing Firstly, we need to parse the documentation. All of coala documentation are reStructuredTexts(rSTs/reSTs). Parsing rst files are done using docutils package.
+Parsing in our answering system is quite simple.</description>
     </item>
     
     <item>

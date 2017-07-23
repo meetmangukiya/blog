@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-    <title>corobo - to answer your questions &middot; Meet Mangukiya | Blog</title>
+    <title>corobo - answering microservice &middot; Meet Mangukiya | Blog</title>
     <meta name="author" content="Meet Mangukiya">
     
     <meta name="generator" content="Hugo 0.25.1" />
@@ -55,7 +55,7 @@
     
 <article class="post">
     <header>
-        <h1 class="post-title">corobo - to answer your questions</h1>
+        <h1 class="post-title">corobo - answering microservice</h1>
         <div class="post-meta">
             <time datetime="20 July 2017">
                 20 July 2017
@@ -66,45 +66,33 @@
     <section class="post-content">
         
 
-<p>A part of my GSoC phase 2 was to get corobo to answer questions from users automatically by searching the coala documentation and returning a link to the relevant section.
-So, here today we discuss about the implementation specifics of the same. Lets get started:</p>
+<p>In the last blog I tried to explain the answering mechanism in corobo. Now, it&rsquo;s
+time to deploy it. Deployment is not always as easy as working locally. But
+there&rsquo;s docker that makes it easier.</p>
 
-<h1 id="parsing">Parsing</h1>
+<h2 id="problem">Problem:</h2>
 
-<p>Firstly, we need to parse the documentation. All of coala documentation are reStructuredTexts(rSTs/reSTs). Parsing rst files are done using <code>docutils</code> package.</p>
+<p>Answering module uses spacy which requires training model to work. That training
+model is about 1 GB of data. Adding that to corobo Dockerfile didn&rsquo;t quite make
+sense because that&rsquo;d increase the size of the image by 1 GB.</p>
 
-<p>Parsing in our answering system is quite simple. We walk through all the nodes in the documents and process all the <code>Section</code> nodes. Now, there are possibilities for a section to contain another section. So, the node is searched if a child section node exists in which case, this node is ignored, because the child node will be recorded later. So, this way we have all the sections from all the rst files. The id of each section is known as well, which helps in building links dynamically such that it points towards relevant part of the documentation.</p>
+<p>Since we want corobo to be adaptable by other orgs and since answering plugin is
+coala specific(for now), we didn&rsquo;t include answering module in the corobo docker image.</p>
 
-<p>The texts are stored in a dict, where the keys are section name and values are text, code, and filename of the rst file.</p>
+<h2 id="solution">Solution</h2>
 
-<h1 id="processing">Processing</h1>
-
-<h2 id="documentation">Documentation</h2>
-
-<p>We construct a knowledge graph from the texts that we grabbed earlier by parsing the documentation files.</p>
-
-<p>How is the graph formed:
-1. Formation of nodes.
-   There is nothing special about node formation. Each token is a node, actually lemmatized node.
-2. Formation of edges.
-   Edges are formed between lemmatized token and lemma of head of the sentence token belongs to.</p>
-
-<p>Apart from this, all the nodes have texts that the node is part of.
-Example: <code>git</code> node will have texts from all the sections of coala.io/git</p>
-
-<h2 id="question">Question</h2>
+<p>We created a microservice to access the answering infrastructure. There are 2
+endpoints:</p>
 
 <ol>
-<li>Same algorithm that we used earlier to form knowledge graph from documentation is used to create graph of the question.</li>
-<li>After creating the question graph, each edge in the question is iterated over.</li>
-<li>The two nodes in the edge are searched in the documentation graph. If both of them are present, then we walk through all the shortest connecting the two nodes and increment the score of each text document stored in the node by 1.</li>
-<li>Score is scaled down relative to the highest scored node.</li>
-<li>Top 3 results are yielded according to the score.</li>
+<li><code>/answer</code> which grabs the question from <code>question</code> query parameter and returns an array of answers with scores.</li>
+<li><code>/summarize</code> which grabs the text to be summarized from <code>text</code> query parameter and returns a json respone with summarized text as value and <code>res</code> as key.</li>
 </ol>
 
-<p>This is pretty much how the answers are found for a given question.</p>
+<p>Now, the answer for a question is retrieved by making a call to <code>/answer</code> endpoint which is then summarized by calling <code>/summarize</code> endpoint.</p>
 
-<p>You can refer to a research paper this idea was taken from, here: <a href="https://pdfs.semanticscholar.org/57dc/e89754ad37b1a631e4ac6f375ce9cae3988e.pdf">https://pdfs.semanticscholar.org/57dc/e89754ad37b1a631e4ac6f375ce9cae3988e.pdf</a></p>
+<p>The microservice is deployed in its own docker container, has its own docker image and ofcourse it&rsquo;s own Dockerfile.
+This decouples the answering deps from corobo, and hence not affecting other orgs&rsquo; corobo instance and also no increase in corobo docker image&rsquo;s size.</p>
 
     </section>
 
@@ -123,15 +111,15 @@ Example: <code>git</code> node will have texts from all the sections of coala.io
     <section class="share">
     <p class="backtotop"><a data-scroll href="#site-head"><i class="fa fa-lg fa-fw fa-angle-double-up"></i></a><a data-scroll class="backtotoptext" href="#site-head"> Back to top</a></p>
     <p class="info prompt">Share</p>
-    <a href="http://twitter.com/share?text=corobo%20-%20to%20answer%20your%20questions&url=https%3a%2f%2fmeetmangukiya.github.io%2fpost%2fcorobo-to-answer-your-questions%2f" title="Share on Twitter"
+    <a href="http://twitter.com/share?text=corobo%20-%20answering%20microservice&url=https%3a%2f%2fmeetmangukiya.github.io%2fpost%2fcorobo-answering-microservice%2f" title="Share on Twitter"
         onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
         <i class="fa fa-2x fa-fw fa-twitter-square"></i> <span class="hidden">Twitter</span>
     </a>
-    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fmeetmangukiya.github.io%2fpost%2fcorobo-to-answer-your-questions%2f" title="Share on Facebook"
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fmeetmangukiya.github.io%2fpost%2fcorobo-answering-microservice%2f" title="Share on Facebook"
         onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
         <i class="fa fa-2x fa-fw fa-facebook-square" style="margin-left: -8px"></i> <span class="hidden">Facebook</span>
     </a>
-    <a href="https://plus.google.com/share?url=https%3a%2f%2fmeetmangukiya.github.io%2fpost%2fcorobo-to-answer-your-questions%2f" title="Share on Google+"
+    <a href="https://plus.google.com/share?url=https%3a%2f%2fmeetmangukiya.github.io%2fpost%2fcorobo-answering-microservice%2f" title="Share on Google+"
        onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
         <i class="fa fa-2x fa-fw fa-google-plus-square" style="margin-left: -8px"></i> <span class="hidden">Google+</span>
     </a>
