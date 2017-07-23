@@ -10,7 +10,6 @@ title = "corobo - to answer your questions"
 
 +++
 
-A. part of my GSoC phase 2 was to get corobo to answer questions from users automatically by searching the ccorobo to answer your questions
 A part of my GSoC phase 2 was to get corobo to answer questions from users automatically by searching the coala documentation and returning a link to the relevant section.
 So, here today we discuss about the implementation specifics of the same. Lets get started:
 
@@ -53,4 +52,3 @@ Example: `git` node will have texts from all the sections of coala.io/git
 This is pretty much how the answers are found for a given question.
 
 You can refer to a research paper this idea was taken from, here: https://pdfs.semanticscholar.org/57dc/e89754ad37b1a631e4ac6f375ce9cae3988e.pdf
-
