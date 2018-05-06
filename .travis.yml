@@ -1,0 +1,26 @@
+dist: trusty
+sudo: true
+
+script:
+  - sudo apt-get --yes install snapd
+  - sudo snap install hugo
+  - mkdir themes
+  - cd themes
+  - git clone https://github.com/digitalcraftsman/hugo-steam-theme
+  - cd ..
+  - /snap/bin/hugo -t hugo-steam-theme
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github_token: $GITHUB_TOKEN
+  keep-history: true
+  on:
+    branch: src
+  local-dir: public
+  target-branch: master
+  fqdn: https://myrhy.me
+  verbose: true
+
+notifications:
+  email: false
