@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>GSoC Proposal - Debugger for coala bears &middot; Meet Mangukiya | meetmangukiya</title>
+    <meta name="author" content="Meet Mangukiya">
+    
+    <meta name="generator" content="Hugo 0.40.2" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <!-- RSS autodiscovery -->
+    
+
+    <link rel="shortcut icon" href="https://myrhy.me/img/favicon.ico">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://myrhy.me/css/screen.css">
+    <link rel="stylesheet" href="https://myrhy.me/css/github.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/default.min.css">
+    
+
+    
+    <link rel="shortcut icon" type="image/x-icon" href="https://myrhy.me/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://myrhy.me/favicon.ico">
+    
+
+    <!-- Stylesheet for theme color -->
+    <style type="text/css">
+    a, a:visited {color: #f05948;}
+    .pagination a {color: #f05948;}
+    .gist .gist-file .gist-meta a:visited {color: #f05948 !important;}
+    a:focus, a:hover {color: #c62310;}
+    h1.post-title a:focus, h1.post-title a:hover, h1.blog-title a:focus, h1.blog-title a:hover {color: #c62310;}
+    .older-posts:hover, .newer-posts:hover {color: #c62310;}
+</style>
+</head>
+
+<body class="home-template">
+    <header id="site-head">
+	
+	<h1 class="blog-title"><a href="https://myrhy.me/">Meet Mangukiya | Blog</a></h1>
+	
+	
+	<h1 class="blog-subtitle">My footprint on the web.</h1>
+	
+</header>
+    
+    
+    <main class="content" role="main">
+    
+<article class="post">
+    <header>
+        <h1 class="post-title">GSoC Proposal - Debugger for coala bears</h1>
+        <div class="post-meta">
+            <time datetime="19 March 2017">
+                19 March 2017
+            </time>
+        </div>
+    </header>
+
+    <section class="post-content">
+        
+
+<h1 id="i-am-applying-for-google-summer-of-code">I am applying for Google Summer of Code</h1>
+
+<h2 id="what-is-google-summer-of-code-a-k-a-gsoc">What is Google Summer of Code a.k.a. GSoC?</h2>
+
+<p>Google Summer of Code is a platform to encourage students to work for Open
+Source. It is a 3 month internship-like program whereby student works with Open
+Source Organizations under the guidance of a mentor
+(who is usually a member of the organization) to write/modify programs/softwares
+for the organization.</p>
+
+<h2 id="what-is-coala">What is coala?</h2>
+
+<p>coala is a program that provides a unified interface to statically analyse
+any project through one application. It wraps many linters across different
+languages and prints results and messages from those linters, and also apply
+and suggest patches for the given messages.</p>
+
+<p>coala runs all the analyis routines through the bears. Bears are like plugins
+and coala is like a framework. Bears are configured through a file <code>.coafile</code>.</p>
+
+<p>coala runs all the analysis/bears by just running <code>coala</code>, isn&rsquo;t it just
+awesome!</p>
+
+<p>I am applying for a GSoC project under <a href="https://coala.io">coala</a></p>
+
+<h2 id="what-is-my-project-about">What is my project about?</h2>
+
+<h3 id="debug-and-profile-bears">Debug and profile bears.</h3>
+
+<p>My project is about creating a debugger for coala, to debug the coala bears and
+create an interface to profile the bears.</p>
+
+<h3 id="debugger">Debugger</h3>
+
+<h4 id="why-not-use-pdb">Why not use pdb?</h4>
+
+<p>You may ask that one may just use <code>pdb</code> to debug the bears.</p>
+
+<p>Writing bears in coala is very easy, thanks to its user friendly and abstract
+API. But the bear developers, usually find difficulty in debugging the bears.
+In bear debugging, the user usually do not need to debug the bear that
+<em>low levelly</em></p>
+
+<h4 id="debug-modes">Debug modes</h4>
+
+<p>The debugger that I&rsquo;ll be creating has three modes:</p>
+
+<ol>
+<li>Debug Mode:
+In Debug mode, the debugging is started as it is as in pdb.</li>
+<li>Superficial Mode:
+In Superficial mode, the arguments and return values of debugged function
+call is captured. This would remove unnecessary stepping.</li>
+<li>Report Mode:
+This is probably the most useful mode. If this mode is used, then the bear
+is ran and the arguments and the return values of all the subsequent function
+calls are captured and printed in a beautiful tabular form.</li>
+</ol>
+
+<h4 id="debugging-environment">Debugging environment</h4>
+
+<p>The job of importing the bear, instantiate them, and run the bear with requried
+setting is a trivial job that can be automated inside coala, so the devs don&rsquo;t
+need to set it up on their own ;)</p>
+
+<p>The bear being debugged will be imported. If no settings are provided in the CLI
+then settings in the coafile will be used while running the bear.</p>
+
+<h4 id="debug">Debug!</h4>
+
+<p>After the importing and collecting of settings is done. Its time to start
+debugging. The run method of the bear is called in <em>Debug Mode</em>. After that at
+every line, user has an option to do whatever options pdb already has plus the
+superficial mode. Superficial mode will perform the function call and print the
+arguments and the return value at that line.</p>
+
+<p>Using the report mode. If the report mode flag is set to true, then the run
+method of bear is called in superficial mode which will directly print the
+<strong>Results</strong> and return values and arguments of all the function calls in the run
+ method.</p>
+
+<h3 id="profiler">Profiler</h3>
+
+<p>After the bear is written and debugged, the author may want to check if he can
+do any performance improvements in the bear. This is where profiling comes into
+the picture.</p>
+
+<p>User can run bear with a <code>--profile</code> option and a nice profile report will be
+created for the given run.</p>
+
+<p><strong>More specific info in the <a href="https://meetmangukiya.github.io/GSoC-DebugandProfileBears-coala.pdf">proposal</a></strong></p>
+
+    </section>
+
+    
+    <section class="post-tags" style="padding-bottom:60px;">
+        <div class="post-meta tags">
+            <i class="fa fa-fw fa-tag"></i>
+            
+                
+                <a href="https://myrhy.me/tags/coala">coala </a>
+            
+        </div>
+    </section>
+    
+    
+    <section class="share">
+    <p class="backtotop"><a data-scroll href="#site-head"><i class="fa fa-lg fa-fw fa-angle-double-up"></i></a><a data-scroll class="backtotoptext" href="#site-head"> Back to top</a></p>
+    <p class="info prompt">Share</p>
+    <a href="http://twitter.com/share?text=GSoC%20Proposal%20-%20Debugger%20for%20coala%20bears&url=https%3a%2f%2fmyrhy.me%2fpost%2fgsoc-coala-debugger%2f" title="Share on Twitter"
+        onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <i class="fa fa-2x fa-fw fa-twitter-square"></i> <span class="hidden">Twitter</span>
+    </a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fmyrhy.me%2fpost%2fgsoc-coala-debugger%2f" title="Share on Facebook"
+        onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <i class="fa fa-2x fa-fw fa-facebook-square" style="margin-left: -8px"></i> <span class="hidden">Facebook</span>
+    </a>
+    <a href="https://plus.google.com/share?url=https%3a%2f%2fmyrhy.me%2fpost%2fgsoc-coala-debugger%2f" title="Share on Google+"
+       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <i class="fa fa-2x fa-fw fa-google-plus-square" style="margin-left: -8px"></i> <span class="hidden">Google+</span>
+    </a>
+</section>
+
+    <footer class="post-footer">
+        <section class="author">
+    <div class="authorimage" style="background: url(https://myrhy.me/img/avatar.jpg)"></div>
+    <h4>Meet Mangukiya</h4>
+    <p class="bio">programmer - student</p>
+    <p class="meta">
+      <i class="fa fa-fw fa-map-marker"></i> Mumbai, Maharashtra, India
+    </p>
+</section>
+    </footer>
+    
+</article>
+
+    </main>
+
+    <footer class="site-footer">
+	<div class="inner">
+		<section class="footer-social">
+      
+      <a href="//twitter.com/meetmangukiya98" target="_blank" title="Twitter"><i class="fa fa-2x fa-fw fa-twitter"></i> <span class="hidden">Twitter</span></a>&nbsp;
+      
+      
+      
+      
+      
+      
+      <a href="//github.com/meetmangukiya" target="_blank" title="GitHub"><i class="fa fa-2x fa-fw fa-github"></i> <span class="hidden">GitHub</span></a>&nbsp;
+      
+      
+      <a href="//gitlab.com/u/meetmangukiya" target="_blank" title="GitLab"><i class="fa fa-2x fa-fw fa-gitlab"></i> <span class="hidden">GitLab</span></a>&nbsp;
+      
+      
+      
+  </section>
+
+		<section class="copyright">&copy; 2018 <a href="https://myrhy.me/">Meet Mangukiya</a>. Released under the MIT license.</section>
+	</div>
+</footer>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://myrhy.me/js/index.js"></script>
+<script src="https://myrhy.me/js/smooth-scroll.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+
+
+<script>
+    smoothScroll.init({
+        speed: 800,
+        easing: 'easeInOutCubic',
+        updateURL: false,
+        offset: 125,
+    });
+</script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-86162389-3', 'auto');
+ga('send', 'pageview');
+</script>
+
+</body>
+</html>

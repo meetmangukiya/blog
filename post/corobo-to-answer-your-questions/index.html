@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>corobo - to answer your questions &middot; Meet Mangukiya | meetmangukiya</title>
+    <meta name="author" content="Meet Mangukiya">
+    
+    <meta name="generator" content="Hugo 0.40.2" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <!-- RSS autodiscovery -->
+    
+
+    <link rel="shortcut icon" href="https://myrhy.me/img/favicon.ico">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://myrhy.me/css/screen.css">
+    <link rel="stylesheet" href="https://myrhy.me/css/github.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/default.min.css">
+    
+
+    
+    <link rel="shortcut icon" type="image/x-icon" href="https://myrhy.me/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://myrhy.me/favicon.ico">
+    
+
+    <!-- Stylesheet for theme color -->
+    <style type="text/css">
+    a, a:visited {color: #f05948;}
+    .pagination a {color: #f05948;}
+    .gist .gist-file .gist-meta a:visited {color: #f05948 !important;}
+    a:focus, a:hover {color: #c62310;}
+    h1.post-title a:focus, h1.post-title a:hover, h1.blog-title a:focus, h1.blog-title a:hover {color: #c62310;}
+    .older-posts:hover, .newer-posts:hover {color: #c62310;}
+</style>
+</head>
+
+<body class="home-template">
+    <header id="site-head">
+	
+	<h1 class="blog-title"><a href="https://myrhy.me/">Meet Mangukiya | Blog</a></h1>
+	
+	
+	<h1 class="blog-subtitle">My footprint on the web.</h1>
+	
+</header>
+    
+    
+    <main class="content" role="main">
+    
+<article class="post">
+    <header>
+        <h1 class="post-title">corobo - to answer your questions</h1>
+        <div class="post-meta">
+            <time datetime="20 July 2017">
+                20 July 2017
+            </time>
+        </div>
+    </header>
+
+    <section class="post-content">
+        
+
+<p>A part of my GSoC phase 2 was to get corobo to answer questions from users automatically by searching the coala documentation and returning a link to the relevant section.
+So, here today we discuss about the implementation specifics of the same. Lets get started:</p>
+
+<h1 id="parsing">Parsing</h1>
+
+<p>Firstly, we need to parse the documentation. All of coala documentation are reStructuredTexts(rSTs/reSTs). Parsing rst files are done using <code>docutils</code> package.</p>
+
+<p>Parsing in our answering system is quite simple. We walk through all the nodes in the documents and process all the <code>Section</code> nodes. Now, there are possibilities for a section to contain another section. So, the node is searched if a child section node exists in which case, this node is ignored, because the child node will be recorded later. So, this way we have all the sections from all the rst files. The id of each section is known as well, which helps in building links dynamically such that it points towards relevant part of the documentation.</p>
+
+<p>The texts are stored in a dict, where the keys are section name and values are text, code, and filename of the rst file.</p>
+
+<h1 id="processing">Processing</h1>
+
+<h2 id="documentation">Documentation</h2>
+
+<p>We construct a knowledge graph from the texts that we grabbed earlier by parsing the documentation files.</p>
+
+<p>How is the graph formed:
+1. Formation of nodes.
+   There is nothing special about node formation. Each token is a node, actually lemmatized node.
+2. Formation of edges.
+   Edges are formed between lemmatized token and lemma of head of the sentence token belongs to.</p>
+
+<p>Apart from this, all the nodes have texts that the node is part of.
+Example: <code>git</code> node will have texts from all the sections of coala.io/git</p>
+
+<h2 id="question">Question</h2>
+
+<ol>
+<li>Same algorithm that we used earlier to form knowledge graph from documentation is used to create graph of the question.</li>
+<li>After creating the question graph, each edge in the question is iterated over.</li>
+<li>The two nodes in the edge are searched in the documentation graph. If both of them are present, then we walk through all the shortest connecting the two nodes and increment the score of each text document stored in the node by 1.</li>
+<li>Score is scaled down relative to the highest scored node.</li>
+<li>Top 3 results are yielded according to the score.</li>
+</ol>
+
+<p>This is pretty much how the answers are found for a given question.</p>
+
+<p>You can refer to a research paper this idea was taken from, here: <a href="https://pdfs.semanticscholar.org/57dc/e89754ad37b1a631e4ac6f375ce9cae3988e.pdf">https://pdfs.semanticscholar.org/57dc/e89754ad37b1a631e4ac6f375ce9cae3988e.pdf</a></p>
+
+    </section>
+
+    
+    <section class="post-tags" style="padding-bottom:60px;">
+        <div class="post-meta tags">
+            <i class="fa fa-fw fa-tag"></i>
+            
+                
+                <a href="https://myrhy.me/tags/coala">coala </a>
+            
+        </div>
+    </section>
+    
+    
+    <section class="share">
+    <p class="backtotop"><a data-scroll href="#site-head"><i class="fa fa-lg fa-fw fa-angle-double-up"></i></a><a data-scroll class="backtotoptext" href="#site-head"> Back to top</a></p>
+    <p class="info prompt">Share</p>
+    <a href="http://twitter.com/share?text=corobo%20-%20to%20answer%20your%20questions&url=https%3a%2f%2fmyrhy.me%2fpost%2fcorobo-to-answer-your-questions%2f" title="Share on Twitter"
+        onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <i class="fa fa-2x fa-fw fa-twitter-square"></i> <span class="hidden">Twitter</span>
+    </a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fmyrhy.me%2fpost%2fcorobo-to-answer-your-questions%2f" title="Share on Facebook"
+        onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <i class="fa fa-2x fa-fw fa-facebook-square" style="margin-left: -8px"></i> <span class="hidden">Facebook</span>
+    </a>
+    <a href="https://plus.google.com/share?url=https%3a%2f%2fmyrhy.me%2fpost%2fcorobo-to-answer-your-questions%2f" title="Share on Google+"
+       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <i class="fa fa-2x fa-fw fa-google-plus-square" style="margin-left: -8px"></i> <span class="hidden">Google+</span>
+    </a>
+</section>
+
+    <footer class="post-footer">
+        <section class="author">
+    <div class="authorimage" style="background: url(https://myrhy.me/img/avatar.jpg)"></div>
+    <h4>Meet Mangukiya</h4>
+    <p class="bio">programmer - student</p>
+    <p class="meta">
+      <i class="fa fa-fw fa-map-marker"></i> Mumbai, Maharashtra, India
+    </p>
+</section>
+    </footer>
+    
+</article>
+
+    </main>
+
+    <footer class="site-footer">
+	<div class="inner">
+		<section class="footer-social">
+      
+      <a href="//twitter.com/meetmangukiya98" target="_blank" title="Twitter"><i class="fa fa-2x fa-fw fa-twitter"></i> <span class="hidden">Twitter</span></a>&nbsp;
+      
+      
+      
+      
+      
+      
+      <a href="//github.com/meetmangukiya" target="_blank" title="GitHub"><i class="fa fa-2x fa-fw fa-github"></i> <span class="hidden">GitHub</span></a>&nbsp;
+      
+      
+      <a href="//gitlab.com/u/meetmangukiya" target="_blank" title="GitLab"><i class="fa fa-2x fa-fw fa-gitlab"></i> <span class="hidden">GitLab</span></a>&nbsp;
+      
+      
+      
+  </section>
+
+		<section class="copyright">&copy; 2018 <a href="https://myrhy.me/">Meet Mangukiya</a>. Released under the MIT license.</section>
+	</div>
+</footer>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://myrhy.me/js/index.js"></script>
+<script src="https://myrhy.me/js/smooth-scroll.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+
+
+<script>
+    smoothScroll.init({
+        speed: 800,
+        easing: 'easeInOutCubic',
+        updateURL: false,
+        offset: 125,
+    });
+</script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-86162389-3', 'auto');
+ga('send', 'pageview');
+</script>
+
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>corobo - answering microservice &middot; Meet Mangukiya | meetmangukiya</title>
+    <meta name="author" content="Meet Mangukiya">
+    
+    <meta name="generator" content="Hugo 0.40.2" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <!-- RSS autodiscovery -->
+    
+
+    <link rel="shortcut icon" href="https://myrhy.me/img/favicon.ico">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://myrhy.me/css/screen.css">
+    <link rel="stylesheet" href="https://myrhy.me/css/github.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/default.min.css">
+    
+
+    
+    <link rel="shortcut icon" type="image/x-icon" href="https://myrhy.me/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://myrhy.me/favicon.ico">
+    
+
+    <!-- Stylesheet for theme color -->
+    <style type="text/css">
+    a, a:visited {color: #f05948;}
+    .pagination a {color: #f05948;}
+    .gist .gist-file .gist-meta a:visited {color: #f05948 !important;}
+    a:focus, a:hover {color: #c62310;}
+    h1.post-title a:focus, h1.post-title a:hover, h1.blog-title a:focus, h1.blog-title a:hover {color: #c62310;}
+    .older-posts:hover, .newer-posts:hover {color: #c62310;}
+</style>
+</head>
+
+<body class="home-template">
+    <header id="site-head">
+	
+	<h1 class="blog-title"><a href="https://myrhy.me/">Meet Mangukiya | Blog</a></h1>
+	
+	
+	<h1 class="blog-subtitle">My footprint on the web.</h1>
+	
+</header>
+    
+    
+    <main class="content" role="main">
+    
+<article class="post">
+    <header>
+        <h1 class="post-title">corobo - answering microservice</h1>
+        <div class="post-meta">
+            <time datetime="23 July 2017">
+                23 July 2017
+            </time>
+        </div>
+    </header>
+
+    <section class="post-content">
+        
+
+<p>In the last blog I tried to explain the answering mechanism in corobo. Now, it&rsquo;s
+time to deploy it. Deployment is not always as easy as working locally. But
+there&rsquo;s docker that makes it easier.</p>
+
+<h2 id="problem">Problem:</h2>
+
+<p>Answering module uses spacy which requires training model to work. That training
+model is about 1 GB of data. Adding that to corobo Dockerfile didn&rsquo;t quite make
+sense because that&rsquo;d increase the size of the image by 1 GB.</p>
+
+<p>Since we want corobo to be adaptable by other orgs and since answering plugin is
+coala specific(for now), we didn&rsquo;t include answering module in the corobo docker image.</p>
+
+<h2 id="solution">Solution</h2>
+
+<p>We created a microservice to access the answering infrastructure. There are 2
+endpoints:</p>
+
+<ol>
+<li><code>/answer</code> which grabs the question from <code>question</code> query parameter and returns an array of answers with scores.</li>
+<li><code>/summarize</code> which grabs the text to be summarized from <code>text</code> query parameter and returns a json respone with summarized text as value and <code>res</code> as key.</li>
+</ol>
+
+<p>Now, the answer for a question is retrieved by making a call to <code>/answer</code> endpoint which is then summarized by calling <code>/summarize</code> endpoint.</p>
+
+<p>The microservice is deployed in its own docker container, has its own docker image and ofcourse it&rsquo;s own Dockerfile.
+This decouples the answering deps from corobo, and hence not affecting other orgs&rsquo; corobo instance and also no increase in corobo docker image&rsquo;s size.</p>
+
+    </section>
+
+    
+    <section class="post-tags" style="padding-bottom:60px;">
+        <div class="post-meta tags">
+            <i class="fa fa-fw fa-tag"></i>
+            
+                
+                <a href="https://myrhy.me/tags/coala">coala </a>
+            
+        </div>
+    </section>
+    
+    
+    <section class="share">
+    <p class="backtotop"><a data-scroll href="#site-head"><i class="fa fa-lg fa-fw fa-angle-double-up"></i></a><a data-scroll class="backtotoptext" href="#site-head"> Back to top</a></p>
+    <p class="info prompt">Share</p>
+    <a href="http://twitter.com/share?text=corobo%20-%20answering%20microservice&url=https%3a%2f%2fmyrhy.me%2fpost%2fcorobo-answering-microservice%2f" title="Share on Twitter"
+        onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <i class="fa fa-2x fa-fw fa-twitter-square"></i> <span class="hidden">Twitter</span>
+    </a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fmyrhy.me%2fpost%2fcorobo-answering-microservice%2f" title="Share on Facebook"
+        onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <i class="fa fa-2x fa-fw fa-facebook-square" style="margin-left: -8px"></i> <span class="hidden">Facebook</span>
+    </a>
+    <a href="https://plus.google.com/share?url=https%3a%2f%2fmyrhy.me%2fpost%2fcorobo-answering-microservice%2f" title="Share on Google+"
+       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <i class="fa fa-2x fa-fw fa-google-plus-square" style="margin-left: -8px"></i> <span class="hidden">Google+</span>
+    </a>
+</section>
+
+    <footer class="post-footer">
+        <section class="author">
+    <div class="authorimage" style="background: url(https://myrhy.me/img/avatar.jpg)"></div>
+    <h4>Meet Mangukiya</h4>
+    <p class="bio">programmer - student</p>
+    <p class="meta">
+      <i class="fa fa-fw fa-map-marker"></i> Mumbai, Maharashtra, India
+    </p>
+</section>
+    </footer>
+    
+</article>
+
+    </main>
+
+    <footer class="site-footer">
+	<div class="inner">
+		<section class="footer-social">
+      
+      <a href="//twitter.com/meetmangukiya98" target="_blank" title="Twitter"><i class="fa fa-2x fa-fw fa-twitter"></i> <span class="hidden">Twitter</span></a>&nbsp;
+      
+      
+      
+      
+      
+      
+      <a href="//github.com/meetmangukiya" target="_blank" title="GitHub"><i class="fa fa-2x fa-fw fa-github"></i> <span class="hidden">GitHub</span></a>&nbsp;
+      
+      
+      <a href="//gitlab.com/u/meetmangukiya" target="_blank" title="GitLab"><i class="fa fa-2x fa-fw fa-gitlab"></i> <span class="hidden">GitLab</span></a>&nbsp;
+      
+      
+      
+  </section>
+
+		<section class="copyright">&copy; 2018 <a href="https://myrhy.me/">Meet Mangukiya</a>. Released under the MIT license.</section>
+	</div>
+</footer>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://myrhy.me/js/index.js"></script>
+<script src="https://myrhy.me/js/smooth-scroll.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+
+
+<script>
+    smoothScroll.init({
+        speed: 800,
+        easing: 'easeInOutCubic',
+        updateURL: false,
+        offset: 125,
+    });
+</script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-86162389-3', 'auto');
+ga('send', 'pageview');
+</script>
+
+</body>
+</html>

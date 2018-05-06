@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo on Meet Mangukiya | meetmangukiya</title>
+    <link>https://myrhy.me/tags/hugo/</link>
+    <description>Recent content in Hugo on Meet Mangukiya | meetmangukiya</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 18 Mar 2017 14:47:27 +0530</lastBuildDate>
+    
+	<atom:link href="https://myrhy.me/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Up and running with the awesome hugo</title>
+      <link>https://myrhy.me/post/hello-hugo/</link>
+      <pubDate>Sat, 18 Mar 2017 14:47:27 +0530</pubDate>
+      
+      <guid>https://myrhy.me/post/hello-hugo/</guid>
+      <description>Hello World! I am kickstarting this website today. I&amp;rsquo;ve been switching themes and platforms. First I tried Jekyll, but it didn&amp;rsquo;t turn out that good for me. Then I started writing a new website from scratch and dropped it in between :P. Now, I am using hugo, seems pretty cool and easy to use until now. Let&amp;rsquo;s hope I stick around this one for a while atleast.
+I am using Ghostwriter theme and hope to stick with it.</description>
+    </item>
+    
+  </channel>
+</rss>
