@@ -19,7 +19,7 @@ deploy:
     branch: src
   local-dir: public
   target-branch: master
-  fqdn: https://myrhy.me
+  fqdn: https://blog.myrhy.me
   verbose: true
 
 notifications:
