@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Meet Mangukiya | meetmangukiya</title>
-    <link>https://myrhy.me/</link>
+    <link>https://blog.myrhy.me/</link>
     <description>Recent content on Meet Mangukiya | meetmangukiya</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 23 Jul 2017 07:49:38 +0530</lastBuildDate>
     
-	<atom:link href="https://myrhy.me/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.myrhy.me/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>corobo - answering microservice</title>
-      <link>https://myrhy.me/post/corobo-answering-microservice/</link>
+      <link>https://blog.myrhy.me/post/corobo-answering-microservice/</link>
       <pubDate>Sun, 23 Jul 2017 07:49:38 +0530</pubDate>
       
-      <guid>https://myrhy.me/post/corobo-answering-microservice/</guid>
+      <guid>https://blog.myrhy.me/post/corobo-answering-microservice/</guid>
       <description>In the last blog I tried to explain the answering mechanism in corobo. Now, it&amp;rsquo;s time to deploy it. Deployment is not always as easy as working locally. But there&amp;rsquo;s docker that makes it easier.
 Problem: Answering module uses spacy which requires training model to work. That training model is about 1 GB of data. Adding that to corobo Dockerfile didn&amp;rsquo;t quite make sense because that&amp;rsquo;d increase the size of the image by 1 GB.</description>
     </item>
     
     <item>
       <title>corobo - to answer your questions</title>
-      <link>https://myrhy.me/post/corobo-to-answer-your-questions/</link>
+      <link>https://blog.myrhy.me/post/corobo-to-answer-your-questions/</link>
       <pubDate>Thu, 20 Jul 2017 07:49:38 +0530</pubDate>
       
-      <guid>https://myrhy.me/post/corobo-to-answer-your-questions/</guid>
+      <guid>https://blog.myrhy.me/post/corobo-to-answer-your-questions/</guid>
       <description>A part of my GSoC phase 2 was to get corobo to answer questions from users automatically by searching the coala documentation and returning a link to the relevant section. So, here today we discuss about the implementation specifics of the same. Lets get started:
 Parsing Firstly, we need to parse the documentation. All of coala documentation are reStructuredTexts(rSTs/reSTs). Parsing rst files are done using docutils package.
 Parsing in our answering system is quite simple.</description>
@@ -34,10 +34,10 @@ Parsing in our answering system is quite simple.</description>
     
     <item>
       <title>GSoC Phase-1 End</title>
-      <link>https://myrhy.me/post/phase-1-end/</link>
+      <link>https://blog.myrhy.me/post/phase-1-end/</link>
       <pubDate>Sat, 24 Jun 2017 23:53:01 +0530</pubDate>
       
-      <guid>https://myrhy.me/post/phase-1-end/</guid>
+      <guid>https://blog.myrhy.me/post/phase-1-end/</guid>
       <description>GSoC Phase-1 End Hey! It is end of June and phase-1 already! Time flies, doesn&amp;rsquo;t it?(except when you are waiting for a review of your PR :P)
 In the last blog post, there were 7 plugins, now there are total 11 plugins. All the old plugins have been ported and functional.
 New plugins that weren&amp;rsquo;t in the last post are: 1. WolframAlpha plugin - Used to query wolfram alpha from chat.</description>
@@ -45,10 +45,10 @@ New plugins that weren&amp;rsquo;t in the last post are: 1. WolframAlpha plugin 
     
     <item>
       <title>GSoC Phase-1 Mid</title>
-      <link>https://myrhy.me/post/phase-1-mid/</link>
+      <link>https://blog.myrhy.me/post/phase-1-mid/</link>
       <pubDate>Thu, 15 Jun 2017 00:22:27 +0530</pubDate>
       
-      <guid>https://myrhy.me/post/phase-1-mid/</guid>
+      <guid>https://blog.myrhy.me/post/phase-1-mid/</guid>
       <description>The coding phase started with the first week of June. Since then:
 Ported 6 plugins, created 1 new plugin The 7 plugins ported are:
  explain - It returns an explanatory message for a given term. ghetto lmgtfy - returns a lmgtfy link with a given search string. nevermind - returns a &amp;lsquo;I&amp;rsquo;m sorry&amp;rsquo; message. ship-it - returns motivational squirrel images. the-rules - returns bot rules  One new plugin that was created is:</description>
@@ -56,10 +56,10 @@ Ported 6 plugins, created 1 new plugin The 7 plugins ported are:
     
     <item>
       <title>Final week of community bonding at coala</title>
-      <link>https://myrhy.me/post/gsoc-final-week-community-bonding/</link>
+      <link>https://blog.myrhy.me/post/gsoc-final-week-community-bonding/</link>
       <pubDate>Tue, 30 May 2017 11:56:02 +0530</pubDate>
       
-      <guid>https://myrhy.me/post/gsoc-final-week-community-bonding/</guid>
+      <guid>https://blog.myrhy.me/post/gsoc-final-week-community-bonding/</guid>
       <description>So, the community bonding period has finally come to an end and the coding phases will start, more fun follows now!
 I already started a bit of coding, I ported some of the plugins.
 Things done in this week:
@@ -68,40 +68,40 @@ Things done in this week:
     
     <item>
       <title>GSoC community bonding week 2</title>
-      <link>https://myrhy.me/post/gsoc-week-2/</link>
+      <link>https://blog.myrhy.me/post/gsoc-week-2/</link>
       <pubDate>Fri, 19 May 2017 21:09:27 +0530</pubDate>
       
-      <guid>https://myrhy.me/post/gsoc-week-2/</guid>
+      <guid>https://blog.myrhy.me/post/gsoc-week-2/</guid>
       <description>Status Update Create milestones Started creating milestones for bonding phase and coding phase 1, 2, and 3 and populating those milestones with issues.
  Bonding Milestone Coding Phase 1 Milestone Coding Phase 2 Milestone Coding Phase 3 Milestone  Search Engine Frameworks VS. Topic Modeling Frameworks Started discussing about the auto-responding feature of corobo. We started by weighing search engine frameworks vs. topic modeling frameworks. It was decided to use topic modeling frameworks instad of any other search engine frameworks like Solr, Lucene, ElasticSearch, etc.</description>
     </item>
     
     <item>
       <title>Accepted for GSoC 2017 at coala</title>
-      <link>https://myrhy.me/post/accepted-for-gsoc/</link>
+      <link>https://blog.myrhy.me/post/accepted-for-gsoc/</link>
       <pubDate>Sun, 07 May 2017 07:49:38 +0530</pubDate>
       
-      <guid>https://myrhy.me/post/accepted-for-gsoc/</guid>
+      <guid>https://blog.myrhy.me/post/accepted-for-gsoc/</guid>
       <description>Accepted for GSoC Last month I created a post about me applying for GSoC under coala organization. And the results were declared on 4th May, and guess what? I am accepted as a GSoC student!! How awesome is that?! :D
 So what lies further Now, that the results are out, the next phase is the Community Bonding period. During this period we are supposed to research more about our project, create milestones and think about the implementation details; do code reviews, present our project on coala mailing lists, and work out the schedule to follow in the 3 months of coding period; contact our mentors and discuss the project further.</description>
     </item>
     
     <item>
       <title>GSoC Proposal - Debugger for coala bears</title>
-      <link>https://myrhy.me/post/gsoc-coala-debugger/</link>
+      <link>https://blog.myrhy.me/post/gsoc-coala-debugger/</link>
       <pubDate>Sun, 19 Mar 2017 18:15:48 +0530</pubDate>
       
-      <guid>https://myrhy.me/post/gsoc-coala-debugger/</guid>
+      <guid>https://blog.myrhy.me/post/gsoc-coala-debugger/</guid>
       <description>I am applying for Google Summer of Code What is Google Summer of Code a.k.a. GSoC? Google Summer of Code is a platform to encourage students to work for Open Source. It is a 3 month internship-like program whereby student works with Open Source Organizations under the guidance of a mentor (who is usually a member of the organization) to write/modify programs/softwares for the organization.
 What is coala? coala is a program that provides a unified interface to statically analyse any project through one application.</description>
     </item>
     
     <item>
       <title>Up and running with the awesome hugo</title>
-      <link>https://myrhy.me/post/hello-hugo/</link>
+      <link>https://blog.myrhy.me/post/hello-hugo/</link>
       <pubDate>Sat, 18 Mar 2017 14:47:27 +0530</pubDate>
       
-      <guid>https://myrhy.me/post/hello-hugo/</guid>
+      <guid>https://blog.myrhy.me/post/hello-hugo/</guid>
       <description>Hello World! I am kickstarting this website today. I&amp;rsquo;ve been switching themes and platforms. First I tried Jekyll, but it didn&amp;rsquo;t turn out that good for me. Then I started writing a new website from scratch and dropped it in between :P. Now, I am using hugo, seems pretty cool and easy to use until now. Let&amp;rsquo;s hope I stick around this one for a while atleast.
 I am using Ghostwriter theme and hope to stick with it.</description>
     </item>

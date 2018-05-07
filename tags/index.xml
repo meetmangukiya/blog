@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Meet Mangukiya | meetmangukiya</title>
-    <link>https://myrhy.me/tags/</link>
+    <link>https://blog.myrhy.me/tags/</link>
     <description>Recent content in Tags on Meet Mangukiya | meetmangukiya</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 23 Jul 2017 07:49:38 +0530</lastBuildDate>
     
-	<atom:link href="https://myrhy.me/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.myrhy.me/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Coala</title>
-      <link>https://myrhy.me/tags/coala/</link>
+      <link>https://blog.myrhy.me/tags/coala/</link>
       <pubDate>Sun, 23 Jul 2017 07:49:38 +0530</pubDate>
       
-      <guid>https://myrhy.me/tags/coala/</guid>
+      <guid>https://blog.myrhy.me/tags/coala/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Hugo</title>
-      <link>https://myrhy.me/tags/hugo/</link>
+      <link>https://blog.myrhy.me/tags/hugo/</link>
       <pubDate>Sat, 18 Mar 2017 14:47:27 +0530</pubDate>
       
-      <guid>https://myrhy.me/tags/hugo/</guid>
+      <guid>https://blog.myrhy.me/tags/hugo/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Web</title>
-      <link>https://myrhy.me/tags/web/</link>
+      <link>https://blog.myrhy.me/tags/web/</link>
       <pubDate>Sat, 18 Mar 2017 14:47:27 +0530</pubDate>
       
-      <guid>https://myrhy.me/tags/web/</guid>
+      <guid>https://blog.myrhy.me/tags/web/</guid>
       <description></description>
     </item>
     
