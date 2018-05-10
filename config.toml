@@ -1,4 +1,4 @@
-baseurl = "https://blog.myrhy.me/"
+baseurl = "http://blog.myrhy.me/"
 languageCode = "en-us"
 title = "Meet Mangukiya | meetmangukiya"
 theme = "hugo-steam-theme"
